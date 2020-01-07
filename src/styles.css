@@ -1,0 +1,142 @@
+/* You can add global styles to this file, and also import other style files */
+
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+.content{
+	overflow: initial!important;
+	margin-top: 0px!important;
+	height: auto!important;
+}
+label {
+    margin: 0px;
+}
+input[type=checkbox]{
+	margin: 0px!important;
+}
+
+ul li a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    border: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 16px!important;
+}
+
+h6 {
+    margin: 0!important;
+}
+
+input {
+    border: none;
+    outline: none;
+    background: none
+}
+
+table {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+select {
+    font-weight: lighter!important;
+    color: #858585 !important;
+}
+
+button {
+    border: 0;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    /* outline: none; */
+}
+
+html,body {
+	height: 100%!important;
+    font-family: "微软雅黑";
+    font-size: 16px;
+}
+.wrapper{
+    height: 100%!important;
+	overflow: hidden!important;
+	background: #ecf0f5;
+}
+@media (max-width: 770px){
+	.wrapper{
+		height: auto!important;
+		overflow: hidden!important;
+		background: #ecf0f5;
+	}
+}
+.wrapper:after, .wrapper:before {
+    content: " ";
+    display: table;
+}
+.cont{
+	height: calc(100% - 50px);
+	overflow: auto;
+}
+.content-wrapper{
+	height: auto;
+	min-height: 100%!important;
+	min-width: 1200px;
+    background: #ecf0f5;
+}
+/*body的滚动条隐藏*/
+body::-webkit-scrollbar{
+	display: none;
+}
+/* 设置滚动条样式 */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+::-webkit-scrollbar-thumb {
+    background: #c1c2c1;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #c1c2c1;
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+    background: #c1c2c1;
+}
+
+
+input::-webkit-input-placeholder { /* WebKit browsers */
+	color: #999;
+	font-size: 13px;
+	font-weight: lighter;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #999;
+	font-size: 13px;
+	font-weight: lighter;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #999;
+	font-size: 13px;
+	font-weight: lighter;
+}

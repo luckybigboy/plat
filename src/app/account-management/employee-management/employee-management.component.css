@@ -1,0 +1,384 @@
+/* Developer：July
+Date:
+Description：员工管理 */
+
+input {
+	margin: 0px;
+}
+i,
+.content-header{
+	color: #666!important;
+}
+.box-body {
+	padding: 0;
+}
+.box {
+	padding: 2%;
+	padding-bottom: 0px;
+	padding-top: 25px;
+}
+.onall {
+	float: left;
+}
+.page {
+	float: right;
+	width: auto !important;
+}
+.dataTables_info {
+	padding-top: 4px;
+}
+table {
+	text-align: center;
+	border: none;
+}
+table thead{
+	display: table;
+    width: calc(100% - 8px);
+	table-layout: fixed;
+	background: #eee;
+}
+table tbody{
+	overflow-y: scroll;
+	overflow-x: hidden;
+    height: 600px;
+    display: block;
+}
+table tbody tr{
+	display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.dataTables_filter input {
+	margin-right: 20px;
+	font-size: 16px;
+}
+.dataTables_filter button {
+	margin-right: 20px;
+}
+.table thead tr th {
+	line-height: 50px;
+	padding: 0px;
+	border-bottom-width: 0;
+}
+form {
+	margin-top: 20px;
+}
+.overlay {
+	width: 100%;
+	height: 600px;
+	text-align: center;
+	position: relative;
+}
+.overlay>i {
+	color: #666 !important;
+}
+.sorting_1>input {
+	margin-right: 8px;
+}
+.table>tbody>tr>td {
+	vertical-align: middle;
+}
+.nolist {
+	height: 140px;
+	line-height: 140px;
+	font-size: 20px;
+	text-align: center;
+	vertical-align: middle;
+}
+.content-header {
+	height: 50px;
+	padding: 13px 2%;
+	display: flex;
+	justify-content: space-between;
+}
+.content-header .breadcrumb {
+	position: static;
+	padding: 0;
+}
+.content-header h1 {
+	display: inline-block;
+	border-left: 6px solid rgb(26, 188, 156);
+	padding-left: 6px;
+}
+.breadcrumb li,
+.content-header h1 {
+	display: inline-block;
+	line-height: 24px;
+}
+.scroll{
+  min-height: 560px;
+}
+.content {
+	overflow-y: scroll;
+	width: 96%;
+	margin: 0 auto;
+	padding: 0 0 20px 0;
+	height: calc(100vh - 120px);
+}
+.delete {
+	width: 50px;
+	border: 1px #ff0061 solid;
+	border-radius: 4px;
+	color: #ff0061;
+	background: #fff;
+	text-align: center;
+	margin-right: 5px;
+}
+.edit {
+	width: 50px;
+	border: 1px #00ca9d solid;
+	border-radius: 4px;
+	color: #00ca9d;
+	background: #fff;
+	text-align: center;
+}
+tr,
+th,
+td {
+	text-align: center;
+	vertical-align: middle;
+}
+.pageNum {
+	width: 30px;
+	height: 34px;
+	display: inline;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+.pagination>li {
+	margin-right: 8px;
+}
+i {
+	font-style: normal;
+	color: red;
+}
+.batch:hover {
+	background: #3a84b8;
+	color: #fff;
+}
+.maskup {
+	background: rgba(0, 0, 0, .3);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+}
+.example-modal {
+	display: block;
+	background: #ccc;
+}
+div#example1_filter label {
+    font-weight: normal;
+}
+/*编辑，添加*/
+.ediContent {
+	width: 100%;
+	background: #fff;
+}
+.basicInfo,
+.rankInfo,
+.deposits,
+.promission {
+	width: 100%;
+	margin: 0 auto;
+	padding: 10px 10px;
+	overflow: hidden;
+}
+.info {
+	margin-top: 20px;
+}
+.info span {
+	margin-left: 5px;
+}
+.info>input {
+	width: 462px;
+	padding: 5px 8px;
+	border: 2px solid #f0f0f0;
+	box-shadow: -2px -2px #ccc;
+}
+.tishi {
+	margin-left: 15px;
+	color: #BCBCBC;
+}
+.title {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-indent: 1em;
+	background: #f2f2f2;
+}
+.remarks {
+	margin-left: 30px;
+}
+.remarksInfo {
+	color: #ccc;
+	margin-left: 20px;
+}
+.grade {
+	margin-top: 20px;
+	width: 720px;
+	border: 1px dashed #ccc;
+	padding: 15px 0;
+}
+.all {
+	font-size: 20px;
+	margin-left: 20px;
+}
+.list {
+	overflow: hidden;
+	margin-top: 10px;
+}
+.list>li {
+	font-size: 14px;
+	display: inline;
+	float: left;
+	margin-left: 60px;
+	height: 40px;
+	line-height: 40px;
+}
+.list>li input {
+	margin: 0px;
+}
+.depInfo {
+	overflow: hidden;
+}
+.prompt {
+	display: block;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+.way {
+	float: left;
+}
+.amount {
+	margin-left: 20px;
+}
+.eidtBox {
+	width: 92%;
+	background: #fff;
+}
+.boxBg {
+	width: 100%;
+	height: 100%;
+	padding: 0 20px;
+	background: #fff;
+	border-top: 3px solid #d2d6de;
+}
+.bgBottom {
+	width: 100%;
+	margin-top: 20px;
+	border-top: 1px solid #ccc;
+	text-align: center;
+	padding-bottom: 60px;
+}
+.footBtn {
+	width: 70px;
+	padding: 8px 5px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	margin-top: 40px;
+}
+.cancle {
+	color: #ccc;
+	background: #fff;
+	border: 1px solid #ccc;
+	margin-right: 20px;
+}
+.cancle:hover {
+	color: #00dbe3;
+	border: 1px solid #00dbe3;
+}
+.daily{
+	opacity: 0.8;
+	cursor: not-allowed;
+}
+.sure {
+	color: #fff;
+	background: #337ab7;
+	margin-left: 20px;
+}
+.sure:hover {
+	background-color: rgba(71, 120, 200, .4);
+}
+.btn {
+	margin-bottom: 5px;
+}
+.page {
+	width: 100%;
+}
+.modal-dialog {
+	position: absolute;
+	top: 45%;
+	left: 45%;
+	transform: translate(-50%, -50%);
+}
+div#example1_filter {
+    font-size: 18px;
+}
+table#example1 tbody tr td {
+	border-top: none;
+}
+table#example1 thead {
+    border-top: 1px solid #ddd;
+}
+table#example1 thead tr th {
+	border-bottom: 1px solid #ddd;
+}
+/* 弹窗样式 */
+.btn-default {
+	width: 111px;
+	height: 35px;
+	line-height: 22px;
+	color: #7a7979;
+	background-color: #fff;
+	border-color: #a9a9a9;
+}
+
+.btn-default:hover {
+	color: #c2c2c2;
+	border: 1px solid #d5d5d5;
+	background: #fff;
+}
+.modal-footer {
+	display: flex;
+	justify-content: space-around;
+	border-top: 1px solid #e5e5e5;
+}
+.modal-footer .btn-primary {
+   width: 111px;
+   height: 35px;
+   line-height: 22px;
+   background: #3782ba;
+   color: #fff;
+   border-color: #898888;
+}
+
+.batchDeletion-content {
+    width: 450px;
+    height: 230px;
+    border-radius: 5px;
+	border: none;
+	margin-right: 0;
+}
+ .batchDeletion-header {
+    width: 450px;
+    height: 50px;
+    background: inherit;
+    background-color: #3c8dbc;
+    color: #666666;
+}
+.batchDeletion-header .modal-title,
+.batchDeletion-header .close {
+	color: #fff;
+	opacity: 1 !important;
+}
+ .batchDeletion-body {
+    text-align: center;
+    width: 450px;
+    height: 117px;
+	background-color: rgba(255, 255, 255, 1);
+	padding: 40px 60px;
+}
+.batchDeletion-body p {
+	margin: 10px 0 10px;
+}	/* 弹窗样式结束 */

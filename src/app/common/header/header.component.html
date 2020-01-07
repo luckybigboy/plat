@@ -1,0 +1,47 @@
+<!-- Developer：July
+Date:
+Description：公共头部 -->
+
+<header class="main-header">
+    <a class="logo">
+        <span class="logo-mini"><b>平台</b>管理</span>
+        <span class="logo-lg"><b>后台管理</b>平台</span>
+    </a>
+    <nav class="navbar navbar-static-top">
+        <li class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <li class="dropdown user user-menu li" style="line-height:50px">当前在线人数：{{this.online}}人</li>
+                <li class="dropdown user user-menu li lilast" style="margin-right:0px;">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" *ngFor="let item of userlist">
+                        <img src="../../../assets//images/user.jpg" class="user-image">
+                        <span class="hidden-xs">{{item.admin_name}}</span>
+                    </a>
+					<ul class="dropdown-menu" *ngFor="let item of userlist">
+                        <li class="user-header">
+                            <img src="../../../assets//images/user.jpg" class="img-circle" alt="User Image" />
+                            <p>
+                                {{item.admin_name}}
+                                <small>{{userInfo?.add_time}}</small>
+                            </p>
+                        </li>
+                        <li class="user-body">
+                            <div class="row" style="padding-left:20px;color: #333;">
+                                {{item.role_name}}
+                            </div>
+                        </li>
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a routerLink="/change-pwd" class="btn btn-default btn-flat"><i
+                                        class="glyphicon glyphicon-user"></i>&nbsp;修改密码</a>
+                            </div>
+                            <div class="pull-right">
+                                <a class="btn btn-default btn-flat"
+                                    (click)="signout()"><i class="glyphicon glyphicon-off"></i>&nbsp;退出登录</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </nav>
+</header>

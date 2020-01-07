@@ -1,0 +1,72 @@
+<!-- Developer：July
+Date:
+Description：彩票返点设置-详情 -->
+
+<div class="content-wrapper" style="min-height:960px;background: rgba(246, 246, 249)">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>彩票返点设置</h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-yen"></i> 彩票管理</a></li>
+			<li class="active">彩票返点设置</li>
+		</ol>
+	</section>
+	<section class="content" style="margin-top: 10px;">
+		<div class="box" style="margin:0 auto;">
+			<div class="box-body">
+				<div class="lottery_right">
+					<div class="prompt">温馨提醒您：请及时保存您修改的数据。</div>
+					<div *ngIf="this.types==1">
+						<div class="rig_titie">{{gameName}}设置站点</div>
+						<div class="setting-site">
+							<span *ngFor="let item of siteName">{{item}}</span>
+						</div>
+					</div>
+					<div *ngIf="this.types==2">
+						<div class="rig_titie">设置站点</div>
+						<div class="setting-site">
+							<span>{{siteName}}</span>
+						</div>
+					</div>
+					<!-- 赔率保存 -->
+					<div class="setting-select">
+						<span *ngIf="updatabtn">修改返点</span>
+						<span *ngIf="!updatabtn">查看返点</span>
+						<div class="btns" *ngIf="updatabtn">
+							<button class="keepBtn" (click)="getOddAll()">保存</button>
+							<button class="cancelBtn" (click)="clear()">取消</button>
+						</div>
+					</div>
+					<div class="odds_list">
+						<table class="table table-bordered table-condensed ">
+							<thead>
+								<tr>
+									<td> 彩票名称</td>
+									<td> 返点比例（%）
+										<input type="number" name="name" [(ngModel)]="rebateAll" #ess="ngModel"
+											*ngIf="updatabtn"
+											onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+											onafterpaste="if(this.value.length==1)">
+										<button (click)="editbtn()" *ngIf="updatabtn">批量修改</button>
+									</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of editRebateList;let i=index">
+									<td>{{item.game_key|lotteryDic}}</td>
+									<td>
+										<input type="number" [(ngModel)]="item.rebate_max" (blur)="getodd($event,i)"
+											onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+											onafterpaste="if(this.value.length==1)"
+											[disabled]="dis">&nbsp;&nbsp;<span>%</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>

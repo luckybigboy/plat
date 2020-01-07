@@ -1,0 +1,165 @@
+/* Developer：July
+Date:
+Description：操作日志 */
+
+.content-wrapper{
+	position: relative;
+}
+th,
+td {
+	text-align: center;
+}
+.box {
+	padding: 2%;
+	padding-bottom: 0px;
+	padding-top: 25px;
+}
+table {
+	text-align: center;
+	border: none;
+}
+table thead{
+	display: table;
+    width: calc(100% - 8px);
+	table-layout: fixed;
+	background: #eee;
+}
+table tbody{
+	overflow-y: scroll;
+	overflow-x: hidden;
+    height: 600px;
+    display: block;
+}
+table tbody tr{
+	display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.table tbody tr:last-child{
+	border-bottom: 1px solid #ddd;
+}
+.table thead tr th {
+	line-height: 50px;
+	text-align: center;
+	border: 1px solid #ddd;
+	border-bottom: none;
+	word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+input {
+	border: 1px solid #ccc;
+	height: 34px;
+	border-radius: 3px;
+}
+.content-header {
+	height: 50px;
+	padding: 13px 2%;
+	display: flex;
+	justify-content: space-between;
+}
+.content-header .breadcrumb {
+	position: static;
+	padding: 0;
+}
+.content-header h1 {
+	display: inline-block;
+	border-left: 6px solid rgb(26, 188, 156);
+	padding-left: 6px;
+}
+.breadcrumb li,
+.content-header h1 {
+	display: inline-block;
+	line-height: 24px;
+}
+.content {
+	overflow-y: scroll;
+	width: 96%;
+	margin: 0 auto;
+	padding: 0;
+	height: calc(100vh - 120px);
+}
+.nolist {
+	height: 140px;
+	line-height: 140px;
+	font-size: 20px;
+	text-align: center;
+	vertical-align: middle;
+}
+.overlay {
+	width: 50px;
+}
+.overlay>i,
+.content-header {
+	color: #666 !important;
+}
+.table>tbody>tr>td {
+	vertical-align: middle;
+	border-bottom: none;
+	word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+.box {
+	margin: 0 auto;
+	min-width: 100%;
+}
+.top {
+	overflow: hidden;
+	margin: 20px 0;
+}
+.searchList {
+	margin-bottom: 20px;
+}
+.searchList label {
+	margin-bottom: 0px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #555;
+}
+.searchList input {
+	border-radius: 4px;
+	margin-left: 5px;
+	margin-right: 25px;
+	height: 34px;
+}
+.searchList>span {
+	line-height: 34px;
+}
+.searchList>input {
+	padding: 15px;
+	width: 250px
+}
+.searchList>button {
+	margin-right: 25px;
+	padding: 6px 25px;
+	height: 35px;
+	max-height: 35px;
+}
+.details {
+	width: 300px;
+	overflow: hidden;
+}
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+	line-height: 2.428571;
+}
+.tool {
+	width: 300px;
+}
+div#example1_filter,#example1_filter label {
+    font-size: 18px;
+}
+
+@media (max-width:1500px){
+	.searchList input{
+		margin-right:15px;
+	}
+	.searchList button{
+		margin-right:15px;
+	}
+}

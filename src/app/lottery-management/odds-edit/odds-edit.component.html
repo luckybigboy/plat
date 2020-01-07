@@ -1,0 +1,97 @@
+<!-- Developer：July
+Date:
+Description：彩票赔率设置-详情 -->
+
+<div class="content-wrapper" style="min-height:960px;background: rgba(246, 246, 249)">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>彩票赔率设置</h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-yen"></i> 彩票管理</a></li>
+			<li class="active">彩票赔率设置</li>
+		</ol>
+	</section>
+	<!-- 中间合计 S  -->
+	<section class="content" style="margin-top: 10px;">
+		<div class="box" style="margin:0 auto;">
+			<div class="box-body">
+				<div class="lottery_right">
+					<div class="prompt">温馨提醒您：请及时保存您修改的数据。</div>
+					<div *ngIf="this.types==1">
+						<div class="rig_titie">{{gameName}}设置站点</div>
+						<div class="setting-site">
+							<span *ngFor="let item of siteName">{{item}}</span>
+						</div>
+					</div>
+					<div *ngIf="this.types==2">
+						<div class="rig_titie">设置站点</div>
+						<div class="setting-site">
+							<span>{{siteName}}</span>
+						</div>
+					</div>
+					<!-- 赔率保存 -->
+					<div class="setting-select">
+						<span *ngIf="updatabtn">修改赔率</span>
+						<span *ngIf="!updatabtn">查看赔率</span>
+						<div class="btns" *ngIf="updatabtn">
+							<button class="keepBtn" (click)="getOddAll()">保存</button>
+							<button class="cancelBtn" (click)="clear()">取消</button>
+						</div>
+					</div>
+					<div class="list">
+						<ul class="lotterys_type">
+							<li *ngFor="let em of Model_keys;let a=index" [ngClass]="{'act': falg==(a+1)}"
+								(click)="modelbtn(a,em,1)">
+								<div class="type">
+									<span>{{em|lotteryDic}}</span>
+								</div>
+							</li>
+						</ul>
+						<ul class="game_list">
+							<li *ngFor="let game of game_keys;let m = index" [ngClass]="{'act2': falg1==(m+1)}"
+								(click)="gamebtn(m,game,1)">
+								{{game|lotteryDic}}
+							</li>
+						</ul>
+						<ul class="play_list">
+							<li *ngFor="let play of play_keys;let d = index" [ngClass]="{'act3': falg2==(d+1)}"
+								(click)="playbtn(d,play)">
+								{{play|lotteryDic}}
+							</li>
+						</ul>
+					</div>
+					<div class="odds_list">
+						<table class="table table-bordered table-condensed " *ngIf='!loadingDivs'>
+							<thead>
+								<tr>
+									<td> {{play_key|lotteryDic}}</td>
+									<td>
+										<span *ngIf="updatabtn">当前赔率
+											<input type="number" name="name" [(ngModel)]="newOdd" #ess="ngModel"
+												onkeyup="value=value.toString().match(/^\d+(?:\.\d{0,3})?/)">
+											<button (click)="editoddsAll()">批量修改</button>
+										</span>
+									</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of win_list">
+									<td>{{obj(item)|lotteryDic}}</td>
+									<td>
+										<input type="number" [name]="obj(item)" [(ngModel)]="item[obj(item)]"
+											(change)="getodd(obj(item),$event)" [disabled]="dis"
+											onkeyup="value=value.toString().match(/^\d+(?:\.\d{0,3})?/)">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="overlay" *ngIf='loadingDivs'>
+							<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>

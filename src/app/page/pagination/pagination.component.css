@@ -1,0 +1,78 @@
+/* Developer：July
+Date:
+Description：公共分页 */
+
+/* 禁用鼠标点击 */
+.prohibit {
+	pointer-events: none;
+}
+.showpage{
+	min-width: 40px;
+}
+/* 数字输入框去掉箭头 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none !important;
+	margin: 0;
+}
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+.paging-content {
+	width: 100%;
+	height: 58px;
+	display: flex;
+	justify-content: space-between;
+}
+.pageNum {
+	width: 52px;
+	height: 32px;
+	display: inline;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+button {
+	height: 35px;
+	background: none;
+	border-radius: 5px;
+	border: 1px solid rgb(199, 199, 199);
+	line-height: 35px;
+	color: rgb(51, 51, 51);
+}
+.previous {
+	width: 70px;
+}
+button:hover {
+	color: #fff;
+	background: #337ab7;
+}
+.bothBtn {
+	min-width: 42px
+}
+.btnactive {
+	color: #fff;
+	background: #337ab7;
+}
+.pre_next_btn {
+	min-width: 56px;
+}
+.pagination>li {
+	margin-right: 16px;
+}
+.pagination>li>button {
+	display: block;
+	padding: 0 6px;
+	height: 33px;
+	line-height: 30px;
+}
+.pagination .pageto {
+	width: 100px;
+}
+.num {
+	font-style: normal;
+	color: red;
+}
+.pagination {
+	display: flex;
+	flex: 1;
+}

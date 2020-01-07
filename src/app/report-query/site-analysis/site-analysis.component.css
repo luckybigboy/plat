@@ -1,0 +1,190 @@
+/* Developer：July
+Date:
+Description：站点分析 */
+
+.box {
+	padding: 2%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+h5 {
+	font-size: 14px;
+	color: #999;
+	margin-top: 0;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.charts {
+	display: flex;
+	justify-content: flex-start;
+}
+.chart {
+	margin-top: 50px;
+}
+.all {
+	width: 30%;
+}
+h2 {
+	margin-top: 30px;
+}
+.all_one {
+	margin-top: 30px;
+}
+h4 {
+	font-size: 28px;
+	color: #488cbc;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #f4f4f4;
+}
+.payingMethods {
+	width: 15%;
+	background-color: #fff;
+	border-radius: 8px;
+	float: left;
+	border: 1px solid #ccc;
+	height: 80vh;
+}
+.siteList {
+	width: 92%;
+	margin: 0 auto;
+}
+h6 {
+	color: red;
+	font-size: 30px;
+}
+.list {
+	border: 1px solid #ccc;
+	height: 48px;
+	line-height: 48px;
+	border-radius: 5px;
+	text-align: center;
+	margin-top: 20px;
+}
+.act {
+	background-color:#337ab7;
+	color: #fff;
+}
+.payment {
+	width: 83%;
+	background-color: #fff;
+	border-radius: 8px;
+	float: right;
+	border: 1px solid #ccc;
+	min-height: 80vh;
+}
+table {
+	width: 70%;
+	border: 1px solid #ccc;
+	margin-top: 30px;
+	margin-left: 50px;
+	border-radius: 8px;
+	min-height: cacl(80vh - 70px);
+}
+th {
+	background-color: #f2f2f2;
+	text-align: center;
+	padding: 15px;
+	box-sizing: border-box;
+}
+td {
+	text-align: center;
+	padding: 15px;
+	box-sizing: border-box;
+}
+.demo-chart {
+	width: 600px;
+	height: 400px;
+}
+.time {
+	width: 158px;
+	padding: 10px;
+	text-align: center;
+	float: left;
+}
+.analyList {
+	overflow: hidden;
+	width: 478px;
+	margin: 0 auto;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+}
+#first {
+	border-right: 2px #ccc solid;
+}
+#last {
+	border-left: 2px #ccc solid;
+}
+.on {
+	background-color: #eee;
+}
+/* 滚动条 */
+/*定义滚动条高宽及背景
+ 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+	width: 2px;
+	height: 16px;
+	background-color: #F5F5F5;
+}
+/*定义滚动条轨道
+  内阴影+圆角*/
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px #eee;
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+/*定义滑块
+  内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px #eee;
+	background-color: #555;
+}
+.content-header {
+	height: 50px;
+	padding: 13px 2%;
+	display: flex;
+	justify-content: space-between;
+	color: #666;
+}
+.content-header .breadcrumb {
+	position: static;
+	padding: 0;
+	line-height: 24px;
+}
+.content-header h1 {
+	display: inline-block;
+	border-left: 6px solid rgb(26, 188, 156);
+	padding-left: 6px;
+	line-height: 24px;
+}
+.breadcrumb li,
+.content-header h1 {
+	display: inline-block;
+}
+.content {
+	margin: 0;
+	padding: 0 2%;
+}
+@media (max-width:1650px) {
+	.charts {
+		display: block;
+	}
+	.all {
+		width: 100%;
+		padding-left: 60px;
+	}
+	.all h2,
+	.all ul {
+		float: left;
+	}
+	.all li {
+		float: left;
+		margin-left: 30px;
+	}
+	.all li h4 {
+		border-bottom: 0;
+	}
+	.all li h6 {
+		margin-top: 10px !important;
+	}
+}

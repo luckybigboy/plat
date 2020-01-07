@@ -1,0 +1,88 @@
+<!-- Developer：July
+Date:
+Description：操作日志 -->
+
+<div class="content-wrapper">
+	<section class="content-header">
+		<h1>操作日志</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 账户管理</li>
+			<li class="active">操作日志</li>
+		</ol>
+	</section>
+	<section class="content" style="margin-top: 10px;">
+		<div class="box">
+			<div class="box-body">
+				<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+					<div class="row">
+						<div id="example1_filter" class="dataTables_filter searchList">
+							<label>
+								登录账号:
+								<input type="text" class="form-control input-sm" placeholder="请输入登录账号进行搜索"
+									aria-controls="example1" [(ngModel)]="username">
+							</label>
+							<span>操作时间：</span>
+							<input type="text" name="daterange" [value]="selectTime" id="to_submit_time" readonly
+								placeholder="请选择时间" />
+							<button type="button" (click)="research()" class="btn btn-primary">搜索</button>
+							<button type="button" class="btn btn-primary" (click)="toExport()">导出
+							</button>
+						</div>
+					</div>
+					<form method="post">
+						<div class="row">
+							<div id="exportTable">
+								<table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+									aria-describedby="example1_info">
+									<thead>
+										<tr role="row" class="odd">
+											<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+												colspan="1" aria-label="Browser: activate to sort column ascending">登录账号
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+												colspan="1" aria-label="Platform(s): activate to sort column ascending">
+												操作类型
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+												colspan="1"
+												aria-label="Engine version: activate to sort column ascending" style="width:600px;">详情
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+												colspan="1" aria-label="CSS grade: activate to sort column ascending">日期
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr role="row" class="odd" *ngFor="let item of lists">
+											<td>{{item.admin_name}}</td>
+											<td>{{item.operate_name}}</td>
+											<td style="width:600px;">{{item.detail}}</td>
+											<td>{{item.time}}</td>
+										</tr>
+										<tr class="nolist" *ngIf="stuse">
+											<td colspan="5">暂无数据</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="overlay" *ngIf='loadingDiv'>
+									<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div style="display: flex">
+						<div></div>
+						<div style="width:100%">
+							<app-pagination
+								[pageParams]="{pageSize:pageSize,totalNum:totalNum,currentPage:currentPage,totalpage:totalPage,pageData:pageData,goPage:goPage}"
+								(changeCurPage)="getPageData($event)">
+							</app-pagination>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 删除提示框 -->
+		<app-alert #child [stock]="stock"></app-alert>
+	</section>
+</div>

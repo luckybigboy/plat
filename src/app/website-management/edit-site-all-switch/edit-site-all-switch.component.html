@@ -1,0 +1,63 @@
+<!-- Developer：July
+Date:
+Description：修改站点总开关-详情 -->
+
+<div class="content-wrapper" style="min-height:960px;background: rgba(246, 246, 249)">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>站点总开关</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 网站管理</li>
+			<li class="active"> 站点总开关</li>
+		</ol>
+	</section>
+	<section class="content" style="margin-top: 10px;">
+		<div class="box" style="margin:0 auto;">
+			<div class="box-body">
+				<div class="lottery_right">
+					<div class="prompt">温馨提醒您：请及时保存您修改的数据。</div>
+					<div *ngIf="this.types==1">
+						<div class="rig_titie">{{gameName}}设置站点</div>
+						<div class="setting-site">
+							<span *ngFor="let item of siteName">{{item}}</span>
+						</div>
+					</div>
+					<div *ngIf="this.types==2">
+						<div class="rig_titie">设置站点</div>
+						<div class="setting-site">
+							<span>{{siteName}}</span>
+						</div>
+					</div>
+					<div class="setting-select">
+						<span *ngIf="updatabtn">修改站点状态</span>
+						<span *ngIf="!updatabtn">查看站点状态</span>
+						<div class="btns" *ngIf="updatabtn">
+							<button class="keepBtn" (click)="getOddAll()">保存</button>
+							<button class="cancelBtn" (click)="clear()">取消</button>
+						</div>
+					</div>
+					<div class="odds_list">
+						<ul>
+							<li>
+								<input type="radio" value="0" [(ngModel)]="statusList" [disabled]='dis' name="sss" />开放
+							</li>
+							<li>
+								<input type="radio" value="2" [(ngModel)]="statusList" [disabled]='dis'
+									name="sss" />关闭前台
+							</li>
+							<!-- <li>
+								<input type="radio" value="1" [(ngModel)]="statusList" />停止交易
+							</li> -->
+							<!-- 暂时关闭 -->
+							<li>
+								<input type="radio" value="3" [(ngModel)]="statusList" [disabled]='dis'
+									name="sss" />前后台关闭
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>

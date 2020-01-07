@@ -1,0 +1,190 @@
+<!-- Developer：July
+Date:
+Description：角色管理 -->
+
+<div class="content-wrapper" style="position: relative">
+	<!-- Content Header (Page header) -->
+	<div class="content-header">
+		<h1 *ngIf="primary">角色管理</h1>
+		<h1 *ngIf="addtion">新增角色</h1>
+		<h1 *ngIf="purview">编辑角色</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 账户管理</li>
+			<li class="active">角色管理</li>
+		</ol>
+	</div>
+	<!-- 中间合计 S  -->
+	<div class="content" style="margin-top: 10px;">
+		<div class="box" *ngIf="primary">
+			<button class="btn btn-block btn-primary" style="width:100px;" (click)="add()" *ngIf="perAdd">新增角色</button>
+			<div>
+				<table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+					aria-describedby="example1_info">
+					<thead>
+						<tr role="row">
+							<th class="sorting" aria-controls="example1" rowspan="1" colspan="1"
+								aria-label="Browser: activate to sort column ascending" style="width: 25%;">角色名称
+							</th>
+							<th class="sorting" aria-controls="example1" rowspan="1" colspan="1"
+								aria-label="Browser: activate to sort column ascending" style="width: 25%;">角色权限
+							</th>
+							<th class="sorting" aria-controls="example1" rowspan="1" colspan="1"
+								aria-label="Browser: activate to sort column ascending" style="width: 25%;">关联角色人数
+							</th>
+							<th class="sorting" aria-controls="example1" rowspan="1" colspan="1"
+								aria-label="Engine version: activate to sort column ascending" style="width:25%;"
+								*ngIf="perBar">操作
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr role="row" class="odd" *ngFor="let item of lists;let i = index">
+							<td>{{item.role_name}}</td>
+							<td data-toggle="tooltip" data-placement="top" title="{{item.operate}}">
+								{{item.operate | stringPi}}</td>
+							<td>{{item.admin_num}}</td>
+							<td *ngIf="perBar">
+								<button type="button" class="btn btn-danger btn-sm"
+									style="width:20%;margin-right: 10px;"
+									(click)="countermand(item.role_id,item.admin_num,item.role_name)" *ngIf="perDel" [disabled]="item.role_name==='超级管理员' ? 'true' : ''">删除
+								</button>
+								<button type="button" class="btn btn-success btn-sm" (click)="limit(item)"
+									style="width:20%;" *ngIf="perEdit" [disabled]="item.role_name==='超级管理员' ? 'true' : ''">编辑
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="overlay" *ngIf="refresh">
+					<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+				</div>
+			</div>
+			<app-pagination
+				[pageParams]="{pageSize:pageSize,totalNum:totalNum,currentPage:currentPage,totalpage:totalPage,pageData:pageData,goPage:goPage}"
+				(changeCurPage)="getPageData($event)">
+			</app-pagination>
+		</div>
+		<!-- 编辑角色弹出框 -->
+		<div class="boxBg" *ngIf="purview">
+			<div class="eidtBox">
+				<div class="ediContent">
+					<div class="basicInfo">
+						<form>
+							<div class="info a">角色名称：
+								<input type="text" class="inputName" name="fise" maxlength="20" minlength="4"
+									miname="first" [(ngModel)]="editAdminName" placeholder="请输入2-10位字符，支持中英文和数字">
+								<span><i>*</i>必填项</span>
+							</div>
+						</form>
+					</div>
+					<div class="rankInfo">
+						<h5 class="title">角色权限设置</h5>
+						<!-- 角色管理 -->
+						<div class="worker-power-border01" *ngFor="let listName of menuList;let i =index">
+							<div class="border01-checkbox01">
+								<input type="checkbox" (click)="selectall($event.target.checked,listName.list,i)"
+									[(checked)]="listName.key.active">{{listName.name}}
+							</div>
+							<div class="lists" *ngFor="let lists of listName.list;let j=index">
+								<div class="border01-checkbox02">
+									<input type="checkbox" [(checked)]="lists.acceptable"
+										(click)='update($event.target.checked,i,j,listName.list)'>
+									<span>{{lists.limlit|tochinese}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="bgBottom">
+					<button class="footBtn cancle" type="button" (click)="close()">取消</button>
+					<button class="footBtn sure" type="button" (click)="preserve()">确定</button>
+				</div>
+			</div>
+			<!-- </perfect-scrollbar> -->
+		</div>
+		<!-- 编辑弹出框 E -->
+		<!-- 添加角色弹出框 -->
+		<div class="boxBg" *ngIf="addtion">
+			<div class="eidtBox">
+				<div class="ediContent">
+					<div class="basicInfo">
+						<form>
+							<div class="info a">角色名称：
+								<input type="text" class="inputName" name="first" [(ngModel)]="AdminName"
+									placeholder="请输入2-10位字符，支持中英文和数字">
+								<span><i>*</i>必填项</span>
+							</div>
+						</form>
+					</div>
+					<div class="rankInfo">
+						<h5 class="title">角色权限设置</h5>
+						<!-- 角色管理 -->
+						<div class="worker-power-border01" *ngFor="let listName of menuList;let i =index">
+							<div class="border01-checkbox01">
+								<input type="checkbox" (click)="selectall($event.target.checked,listName.list,i)"
+									[(checked)]="listName.key.active">{{listName.name}}
+							</div>
+							<div class="lists" *ngFor="let lists of listName.list;let j=index">
+								<div class="border01-checkbox02">
+									<input type="checkbox" [(checked)]="lists.acceptable"
+										(click)='update($event.target.checked,i,j,listName.list)'>
+									<span>{{lists.limlit|tochinese}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bgBottom">
+				<button class="footBtn cancle" type="button" (click)="close()">取消</button>
+				<button class="footBtn sure" type="button" (click)="confirmAdd()">确定</button>
+			</div>
+			<!-- </perfect-scrollbar> -->
+		</div>
+	</div>
+	<!-- 删除弹出框Ｓ -->
+	<div class="tableBox" *ngIf="remove">
+		<div class="maskup" (click)="abolish()"></div>
+		<div class="modal-dialog">
+			<div class="modal-content batchDeletion-content">
+				<div class="modal-header batchDeletion-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true" (click)="abolish()">×</span>
+					</button>
+					<h4 class="modal-title">删除角色</h4>
+				</div>
+				<div class="modal-body batchDeletion-body">
+					<p>您确定要删除该角色？</p>
+				</div>
+				<div class="modal-footer footer-btn">
+					<button type="button" class="btn btn-default pull-left" data-dismiss="modal" (click)="abolish()">取消
+					</button>
+					<button type="button" class="btn btn-primary" (click)="sureDel()">确认</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tableBox" *ngIf="delState1">
+		<div class="maskup" (click)="close()"></div>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true" (click)="close()">×</span>
+					</button>
+					<h4 class="modal-title">删除提示</h4>
+				</div>
+				<div class="modal-body">
+					<p>你还不能删除该账户，因为他的 下级人数不为<i>0</i></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default pull-left" data-dismiss="modal" (click)="close()">取消
+					</button>
+					<button type="button" class="btn btn-primary" (click)="close()">确认
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>

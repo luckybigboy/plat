@@ -1,0 +1,120 @@
+<!-- Developer：July
+Date:
+Description：月结对账报表 -->
+
+<div class="content-wrapper" style="min-height:960px;">
+	<section class="content-header">
+		<h1>月结对账报表</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i>报表查询</li>
+			<li class="">月结对账报表</li>
+		</ol>
+	</section>
+	<section class="content" style="margin-top: 10px;">
+		<div class="box">
+			<div style="overflow: hidden;clear: both;">
+				<div class="payingMethods" style="float: left;">
+					<h5 class="title">站点名称</h5>
+					<ul>
+						<li (click)="tab(i,item.site_key)" class="list" [ngClass]="{'active':flag== (i+1)}"
+							*ngFor="let item of sitelist;let i = index">{{item.site_name}}</li>
+					</ul>
+				</div>
+				<div class="payment" style="overflow:hidden;position:relative;float:right">
+					<div style="margin-top: 20px;">
+						<span>结算日期： </span>
+						<select name="m" [(ngModel)]="month" id="" (change)="databtn()">
+							<option selected='selected' value="">请选择</option>
+							<option *ngFor="let ite of datelist" [value]="ite">{{ite}}</option>
+						</select>
+					</div>
+					<div class="title"><span>{{years}}月结对账报表</span></div>
+					<table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+						aria-describedby="example1_info">
+						<thead>
+							<tr role="row">
+								<th class="sorting_asc" aria-controls="example1" rowspan="1" colspan="1"
+									aria-sort="ascending"
+									aria-label="Rendering engine: activate to sort column descending"
+									style="width: 191px;">金额类型
+								</th>
+								<th class="sorting" aria-controls="example1" rowspan="1" colspan="1"
+									aria-label="Browser: activate to sort column ascending" style="width: 297px;">
+									彩票游戏
+								</th>
+								<th class="soiteting" aria-controls="example1" rowspan="1" colspan="1"
+									aria-label="Engine version: activate to sort column ascending" style="width:297px;">
+									真人视讯
+								</th>
+								<th class="soiteting" aria-controls="example1" rowspan="1" colspan="1"
+									aria-label="Engine version: activate to sort column ascending" style="width:297px;">
+									电子游戏
+								</th>
+								<th class="soiteting" aria-controls="example1" rowspan="1" colspan="1"
+									aria-label="Engine version: activate to sort column ascending" style="width:297px;">
+									体育游戏
+								</th>
+								<th class="soiteting" aria-controls="example1" rowspan="1" colspan="1"
+									aria-label="Engine version: activate to sort column ascending" style="width:360px;">
+									棋牌游戏
+								</th>
+							</tr>
+						</thead>
+						<tbody *ngIf='!loadingDivs'>
+							<tr role="row" clitess="odd">
+								<td>投注总额</td>
+								<td>{{betlottery| tranNumber}}</td>
+								<td>{{betvideo| tranNumber}}</td>
+								<td>{{betgames| tranNumber}}</td>
+								<td>{{betsports| tranNumber}}</td>
+								<td>{{betcards| tranNumber}}</td>
+							</tr>
+							<tr role="row" class="even">
+								<td>派彩总额</td>
+								<td>{{bonuslottery| tranNumber}}</td>
+								<td>{{bonusvideo| tranNumber}}</td>
+								<td>{{bonusgames| tranNumber}}</td>
+								<td>{{bonussports| tranNumber}}</td>
+								<td>{{bonuscards| tranNumber}}</td>
+							</tr>
+							<tr role="row" class="even">
+								<td>损益</td>
+								<td>{{profitlottery| tranNumber}}</td>
+								<td>{{profitvideo| tranNumber}}</td>
+								<td>{{profitgames| tranNumber}}</td>
+								<td>{{profitsports| tranNumber}}</td>
+								<td>{{profitcards| tranNumber}}</td>
+							</tr>
+							<tr role="row" class="even">
+								<td>提成</td>
+								<td>{{taxlottery| tranNumber}}</td>
+								<td>{{taxvideo| tranNumber}}</td>
+								<td>{{taxgames| tranNumber}}</td>
+								<td>{{taxsports| tranNumber}}</td>
+								<td>{{taxcards| tranNumber}}</td>
+							</tr>
+							<tr role="row" class="even">
+								<td>服务费</td>
+								<td colspan="5">
+									<span *ngIf="rent==''">0</span>
+									<span *ngIf="rent!=''">{{rent}}</span>
+								</td>
+							</tr>
+							<tr role="row" class="even">
+								<td>应收金额</td>
+								<td colspan="5">
+									<span *ngIf="total==''">0</span>
+									<span *ngIf="total!==''" style="color:red;text-align: center">{{total}}</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="overlay" *ngIf='loadingDivs'>
+						<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<app-alert #child [stock]="stock"></app-alert>

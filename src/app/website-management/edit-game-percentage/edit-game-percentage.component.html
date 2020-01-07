@@ -1,0 +1,101 @@
+<!-- Developer：July
+Date:
+Description：修改站点游戏提成比例 -->
+
+<div class="content-wrapper" style="min-height:960px;background: rgba(246, 246, 249)">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>站点游戏提成比例</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 网站管理</li>
+			<li class="active">站点游戏提成比例</li>
+		</ol>
+	</section>
+	<!-- 中间合计 S  -->
+	<section class="content">
+		<div class="box" style="margin:0 auto;">
+			<div class="box-body">
+				<h2><span>!</span> 温馨提示您：请及时保存您修改的数据</h2>
+				<div class="muss" *ngIf="this.types==1">
+					<h1>设置站点</h1>
+					<ul>
+						<li *ngFor="let item of siteName">{{item}}</li>
+					</ul>
+				</div>
+				<div class="muss" *ngIf="this.types==2">
+					<h1>设置站点</h1>
+					<ul>
+						<li>{{siteName}}</li>
+					</ul>
+				</div>
+				<div class="set_body">
+					<div class="set_title">
+						<h1 *ngIf="!updatabtn">查看抽成比例</h1>
+						<h1 *ngIf="updatabtn">设置抽成比例</h1>
+						<div class="set_buton" *ngIf="updatabtn">
+							<button (click)="clear()">取消</button>
+							<button class="sure" (click)="sure()">确认</button>
+						</div>
+					</div>
+					<div class="set_content">
+						<div class="serve">
+							<span>服务费（元）：</span>
+							<input type="number" name="serve" [(ngModel)]="service" [disabled]="dis"
+								(change)="service_text($event)"
+								onkeyup="value=value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');">
+							<p>说明：此金额为每月固定站点的付费金额</p>
+						</div>
+						<ul class="set_table" *ngFor="let item of Model_keys">
+							<li>
+								<h3>{{item|gamelists}}抽成比例设置</h3>
+								<table border=1>
+									<tr>
+										<th>{{item|gamelists}}损益范围</th>
+										<th>{{item|gamelists}}抽成比例</th>
+									</tr>
+									<tr *ngFor="let ite of rent[item];let r=index">
+										<td>
+											<div>
+												<span *ngIf="r==0"><input type="text" value="0" disabled /></span>
+												<span *ngIf="r!=0">
+													<input type="text" name="min" disabled
+														[(ngModel)]="this.rent[item][r-1].range_max">
+												</span>
+												<span>－</span>
+												<input type="number" class="max" name="max" [(ngModel)]="ite.range_max"
+													(blur)="rangmax($event)"
+													onkeyup="value=value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');"
+													[disabled]="dis">
+											</div>
+										</td>
+										<td>
+											<div>
+												<input type="number" class="rent" name="rent" [(ngModel)]="ite.tax_rate"
+													[disabled]="dis" (blur)="taxrate($event)"
+													onkeyup="value=value.replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3');">
+												<span>%</span>
+											</div>
+										</td>
+									</tr>
+									<tr id="last1" *ngIf="updatabtn">
+										<td colspan=2>
+											<button class="newone" (click)="addinput(rent[item])">+新增一条</button>
+										</td>
+									</tr>
+								</table>
+							</li>
+						</ul>
+						<div class="overlay" *ngIf='loadingDivs'>
+							<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+						</div>
+						<p class="p2 p1">抽成金额=最低损益×相对应的比例+超出部分×相对应的比例</p>
+						<p class="p2">举例说明：平台A损益总金额为15000000，彩票损益为750000，真人视讯-45000，电子游戏-20000，体育赛事-60000，棋牌游戏损益750000，
+							应抽成金额=【（500000×5%）+（250000×4%）】+【（500000×10%）+（250000×8%）】
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>

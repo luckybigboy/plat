@@ -1,0 +1,66 @@
+<!-- Developer：July
+Date:
+Description：修改密码 -->
+
+<div class="content-wrapper">
+	<section class="content-header">
+		<h1>
+			修改密码
+		</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> Home</li>
+			<li class="active">修改密码</li>
+		</ol>
+	</section>
+	<!-- 中间合计 S  -->
+	<section class="content">
+		<div class="box">
+			<h3>个人资料</h3>
+			<p style="color:#ccc">如忘记密码，可通过您的上级找回</p>
+			<div class="change">修改登录密码</div>
+			<div class="flat">
+				<div class="user">
+					<div class="pic"></div>
+					<span style="display:block">用户名：{{info.admin_name}}</span>
+					<span>登录账号:{{info.admin_key}}</span>
+				</div>
+				<div class="psd">
+					<label class="item item-input form-group">
+						<span class="input-label"> &nbsp;&nbsp;&nbsp;旧密码：</span>
+						<div class="form-group has-feedback">
+							<input type="password" class="form-control" placeholder="请输入旧密码" name="username"
+								[(ngModel)]="password">
+							<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+						</div>
+					</label>
+					<span style="display:block;color:red">{{verPasswordOld}}</span>
+					<label class="item item-input form-group">
+						<span class="input-label">&nbsp;&nbsp;&nbsp;新密码：</span>
+						<div class="form-group has-feedback">
+							<input type="password" class="form-control" placeholder="请输入密码" name="psd"
+								[(ngModel)]="passwordNew" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')"
+								minlength="6" maxlength="20">
+							<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+						</div>
+					</label>
+					<span style="display:block;color:red">{{verPasswordNew}}</span>
+					<label> <span>确认密码：</span>
+						<div class="form-group has-feedback">
+							<input type="password" class="form-control" placeholder="请输入密码" name="psd"
+								[(ngModel)]="onceAgainPasswordNew" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')"
+								minlength="6" maxlength="20">
+							<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+						</div>
+					</label>
+					<span style="display:block;color:red">{{verOnceAgainPasswordNew}}</span>
+				</div>
+			</div>
+			<div style="margin-top:20px;"></div>
+			<div class="submit">
+				<button class="btn" onclick="javascript:history.back(-1);">取消</button>
+				<button type="button" class="btn btn-primary" (click)="changPsd()">{{edittext}}</button>
+			</div>
+		</div>
+	</section>
+</div>
+<app-alert #child [stock]="stock"></app-alert>

@@ -1,0 +1,224 @@
+/* Developer：July
+Date:
+Description：开奖结果 */
+
+.content {
+	padding: 0 2%;
+}
+.box-body {
+	padding: 2%;
+}
+.content-header {
+	height: 50px;
+	padding: 13px 2%;
+	display: flex;
+	justify-content: space-between;
+}
+.content-header h1 {
+	border-left: 6px solid rgb(26, 188, 156);
+	padding-left: 6px;
+	line-height: 25px;
+}
+.content-header .breadcrumb {
+	position: initial;
+	line-height: 13px;
+}
+input {
+	border: 1px solid #ccc;
+	margin: 0;
+}
+.page {
+	overflow: hidden;
+	clear: both;
+}
+.nolist {
+	font-size: 20px;
+	height: 140px;
+}
+.time_over input {
+	float: left;
+	padding: 8px 6px;
+	width: 345px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+table>tbody>tr>td {
+	line-height: 2.428571;
+	text-align: center;
+	background: #fff;
+}
+table {
+	text-align: center;
+}
+table>thead>tr>th {
+	text-align: center;
+	border-bottom: none;
+    line-height: 36px;
+    background: #f6f7f9;
+}
+.active {
+	color: rgb(51, 153, 255) !important;
+}
+.act {
+	color: rgb(51, 153, 255) !important;
+}
+.time input {
+	padding: 5px 6px;
+	width: 345px;
+	height: 35px;
+	line-height: 35px;
+	border-radius: 2px;
+	border: 1px solid #ccc;
+}
+.time span {
+	height: 35px;
+	line-height: 35px;
+	width: 75px;
+}
+.time {
+	margin-left: 30px;
+}
+.time_over {
+	overflow: hidden;
+	clear: both;
+	width: 345px;
+	margin-top: -5px;
+}
+.time_over input {
+	float: left;
+	padding: 8px 6px;
+	width: 345px;
+	/* height: 32px;
+        line-height: 32px; */
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+select {
+	background: #fff;
+	height: 34px;
+	border-radius: 5px;
+	width: 270px;
+}
+input {
+	border: 1px solid #ccc;
+}
+.key {
+	opacity: 1;
+}
+.dataTables_filter {
+	display: flex;
+}
+.dataTables_filter label {
+	margin-right: 10px;
+	margin-bottom: 0px;
+	font-size: 16px;
+	font-weight: 400;
+	color: #555;
+}
+.dataTables_filter input {
+	height: 34px;
+	line-height: 34px;
+	margin-left: 10px;
+}
+.dateNum {
+	width: 200px;
+	border-radius: 4px;
+	margin-left: 5px;
+	margin-right: 20px;
+	height: 34px;
+}
+.lottery_left {
+	float: left;
+	width: 18%;
+}
+.lottery_left ul li {
+	list-style: none;
+}
+.menu_container {
+	height: auto;
+	background-color: white;
+	border-radius: 5px;
+}
+.menu_container ul {
+	height: auto;
+}
+.menu_container ul li:hover {
+	cursor: pointer;
+}
+.menu_container ul li:last-child .menu_title {
+	border-bottom: 1px solid rgba(223, 223, 223, 1);
+}
+.menu_content li {
+	background-color: #fff;
+	color: #5C6477;
+}
+.menu_content li:hover {
+	color: rgb(51, 153, 255);
+}
+.menu_title {
+	border: 1px solid rgba(223, 223, 223, 1);
+	border-bottom: none;
+	background-color: #f9f9f9;
+}
+.menu_title i {
+	font-weight: bold;
+	font-size: 18px;
+	display: block;
+	float: right;
+	padding: 14px;
+	transition: all .5s;
+	transform: rotate(0deg)
+}
+.menu_title span {
+	font-weight: bold;
+	font-size: 16px;
+	color: #5C6477;
+}
+.title_red {
+	color: black;
+}
+.menu_title .arrow_up {
+	transform: rotate(-90deg);
+}
+.menu_title .arrow_down {
+	transform: rotate(0deg);
+}
+.menu_title,
+.menu_content li {
+	height: 50px;
+	line-height: 50px;
+	padding-left: 15px;
+	font-size: 16px;
+}
+.menu_content {
+	padding: 0px;
+}
+.menu_content li {
+	border: 1px solid rgba(223, 223, 223, 1);
+	border-bottom: 0px;
+	padding-left: 35px;
+}
+.menu_content li:last-child {
+	border-bottom: 1px solid rgba(223, 223, 223, 1);
+}
+.lottery_right {
+	float: right;
+	width: 80%;
+}
+#exportTable{
+	height: 560px;
+	margin-bottom: 20px;
+}
+.table>tbody>tr>td {
+	vertical-align: middle;
+}
+/* loading 正在加载中 */
+.overlay {
+	width: 50px;
+	height: 43px;
+	margin: 80px auto;
+}
+.overlay>i,
+.content-header {
+	color: #666 !important;
+}

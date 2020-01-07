@@ -1,0 +1,71 @@
+<!-- Developer：July
+Date:
+Description：修改第三方游戏开关-详情 -->
+
+<div class="content-wrapper" style="min-height:960px;background: rgba(246, 246, 249)">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>第三方游戏开关</h1>
+        <ol class="breadcrumb">
+            <li><i class="fa fa-yen"></i> 网站管理</li>
+            <li class="active"> 第三方游戏开关</li>
+        </ol>
+    </section>
+    <section class="content" style="margin-top: 10px;">
+        <div class="box" style="margin:0 auto;">
+            <div class="box-body">
+                <div class="lottery_right">
+                    <div class="prompt">
+                        温馨提醒您：请及时保存您修改的数据。勾选即为开放。
+                    </div>
+                    <div *ngIf="this.types==1">
+                        <div class="rig_titie">批量设置站点</div>
+                        <div class="setting-site">
+                            <span *ngFor="let item of siteName">{{item}}</span>
+                        </div>
+                    </div>
+                    <div *ngIf="this.types==2">
+                        <div class="rig_titie">设置站点</div>
+                        <div class="setting-site">
+                            <span>{{siteName}}</span>
+                        </div>
+                    </div>
+                    <div class="setting-select"  *ngIf="updatabtn">
+						<span *ngIf="updatabtn">设置第三方游戏开关</span>
+						<span *ngIf="!updatabtn">查看第三方游戏开关</span>
+						<div class="btns" *ngIf="updatabtn"><button class="keepBtn" (click)="getOddAll()">保存</button>
+							<button class="cancelBtn" (click)="clear()">取消</button></div>
+                    </div>
+                    <div class="gamelist">
+                        <ul class="lotterys_type">
+                            <li [ngClass]="{'act': flag==(i+1)}" *ngFor="let item of menuList;let i=index"
+                                (click)="tab(i)" [class.isdisplay]="item.acitve">
+                                <span>{{item.name}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="odds_list">
+                        <ul class="lotterys_type">
+                            <li *ngFor="let em of lists;let i=index">
+                                <div class="type">
+                                    <input type="checkbox" name="innerall" [(ngModel)]="em.active"
+                                        (click)="singelsel($event.target.checked,em)" [disabled]='dis'>
+                                    <span>{{em.name}}</span>
+                                </div>
+                                <ul class="play_list">
+                                    <li *ngFor="let item of em.list;let a =index">
+                                        <span></span>
+                                        <input type="checkbox" [(checked)]="item.acceptable"
+                                            (click)="radioswitch(em,$event.target.checked,a)" [disabled]='dis'>
+                                        <span>{{item.game_key|threegameDicy}}</span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <app-alert #child  [stock]="stock"></app-alert>
+</div>

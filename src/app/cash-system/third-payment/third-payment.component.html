@@ -1,0 +1,59 @@
+<!-- Developer：July
+Date:
+Description：第三方支付方式列表 -->
+
+<div class="content-wrapper" style="min-height:960px;">
+	<div class="content-header">
+		<h1>第三方支付方式列表</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 现金系统</li>
+			<li>第三方支付方式列表</li>
+		</ol>
+	</div>
+	<div class="content" style="margin-top: 10px;">
+		<div class="box">
+			<div class="payingMethods">
+				<h5 class="title">第三方支付</h5>
+				<ul id="catoryPay">
+					<li (click)="tab(i,item.gate_name)" class="list" [ngClass]="{'active':falg== (i+1)}"
+						*ngFor="let item of paylist;let i = index">{{item.gate_name}}
+					</li>
+				</ul>
+			</div>
+			<div class="payment">
+				<h5>{{title}}方式列表</h5>
+				<form method="post">
+					<div class="row">
+						<div class="col-sm-12">
+							<table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+								aria-describedby="example1_info">
+								<thead>
+									<tr role="row" class="odd">
+										<th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
+											colspan="1" aria-sort="ascending"
+											aria-label="Rendering engine: activate to sort column descending">编号
+										</th>
+										<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+											colspan="1" aria-label="Browser: activate to sort column ascending">
+											支付平台/银行名称
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let type of typelist;let i=index" role="row">
+										<td>{{i+1}}</td>
+										<td>{{type.way_name}}</td>
+									</tr>
+									<tr *ngIf="staus" class="nolist">
+										<td colspan="3">暂无数据</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>

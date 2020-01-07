@@ -1,0 +1,69 @@
+<!-- Developer：July
+Date:
+Description：站点彩票开关 -->
+
+<div class="content-wrapper" style="min-height:960px;background: rgba(246, 246, 249)">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>站点彩票开关</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 网站管理</li>
+			<li class="active">站点彩票开关</li>
+		</ol>
+	</section>
+	<!-- 中间合计 S  -->
+	<section class="content" style="margin-top: 10px;">
+		<div class="box" style="margin:0 auto;">
+			<div class="box-body">
+				<div class="comm-table-time">
+					<span>站点名称：</span><input type="text" [(ngModel)]="siteName">
+				</div>
+				<div class="comm-table-searchBtn">
+					<button (click)="lottoryList(2)" class="btn-primary">搜索</button>
+				</div>
+				<table class="table table-bordered table-condensed table0101 table_racing">
+					<thead>
+						<tr>
+							<td *ngIf="perupdata">
+								<input type="checkbox" (click)="selall($event.target.checked,lotterySwitch)"
+									[(checked)]="selallatate">全选
+							</td>
+							<th>站点名称</th>
+							<th>当前在线人数</th>
+							<th>当前关闭彩票（个）</th>
+							<th><span>操作</span><button (click)="editBatch()" *ngIf="perupdata"
+									class="btn-primary"  [disabled]="batch.length==0" [class.daily]="batch.length==0">批量修改</button></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let item of lotterySwitch;let i=index">
+							<td *ngIf="perupdata">
+								<input type="checkbox" [(checked)]="item.active"
+									(click)="singelsel($event.target.checked,i,lotterySwitch)">
+									<span>{{i+1}}</span>
+							</td>
+							<td>{{item.site_name}}</td>
+							<td>{{item.onlineUserNumber}}</td>
+							<td>{{item.closeGameNumber}}</td>
+							<td>
+								<button [routerLink]="['/edit-site-lottory-switch']" class="btn-primary"
+									[queryParams]="{id:item.site_key,name:item.site_name,type:2}" *ngIf="perupdata">修改
+								</button>
+								<button [routerLink]="['/edit-site-lottory-switch']" class="btn-primary"
+									[queryParams]="{id:item.site_key,name:item.site_name,type:2}" *ngIf="perview">查看
+								</button>
+							</td>
+						</tr>
+						<tr *ngIf="staus" class="nolist">
+							<td colspan="5">暂无数据</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="overlay" *ngIf='loadingDivs'>
+					<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+				</div>
+			</div>
+		</div>
+	</section>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>

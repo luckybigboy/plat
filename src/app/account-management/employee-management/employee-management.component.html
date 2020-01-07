@@ -1,0 +1,222 @@
+<!-- Developer：July
+Date:
+Description：员工管理 -->
+
+<div class="content-wrapper" style="min-height:960px;position: relative;">
+	<div class="content-header">
+		<h1 *ngIf='primary'>员工管理</h1>
+		<h1 *ngIf='editState'>编辑员工</h1>
+		<h1 *ngIf='addState'>新增员工</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 账户管理</li>
+			<li class="active">员工管理</li>
+		</ol>
+	</div>
+	<div class="content">
+		<div class="box" *ngIf='primary'>
+			<div class="box-body">
+				<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+					<div style="overflow: hidden;">
+						<div id="example1_filter" class="dataTables_filter">
+							<label>登录账号：
+								<input type="search" class="form-control input-sm"
+									style="border-radius: 4px;padding:16px;" placeholder="请输入登录账号进行搜索"
+									aria-controls="example1" [(ngModel)]="staffName">
+							</label>
+							<button type="button" class="btn btn-primary" style="padding:6px 25px;"
+								(click)="research()">搜索
+							</button>
+							<button type="button" class="btn btn-primary" (click)="add()" *ngIf="perAdd">新增员工</button>
+						</div>
+					</div>
+					<form method="post">
+						<div style="overflow: hidden;">
+							<div class="scroll">
+								<table id="example1" class="table table-bordered table-striped dataTable" role="grid"
+									aria-describedby="example1_info">
+									<thead>
+										<tr role="row">
+											<th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
+												colspan="1" aria-sort="ascending"
+												aria-label="Rendering engine: activate to sort column descending"
+												*ngIf="perDel">
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+												colspan="1" aria-label="Browser: activate to sort column ascending">员工名称
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+												colspan="1" aria-label="Platform(s): activate to sort column ascending">
+												登录账户
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+												colspan="1"
+												aria-label="Engine version: activate to sort column ascending">角色
+											</th>
+											<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+												colspan="1" aria-label="CSS grade: activate to sort column ascending"
+												*ngIf="perBar">操作
+											</th>
+										</tr>
+									</thead>
+									<tbody *ngIf='!loadingDiv'>
+										<tr role="row" class="odd" *ngFor="let item of lists;let i=index">
+											<td class="sorting_1" *ngIf="perDel">
+												<input type="checkbox" [(checked)]="item.active"
+													(click)="singelsel($event.target.checked,i,lists)">
+											</td>
+											<td>{{item.admin_name}}</td>
+											<td>{{item.admin_key}}</td>
+											<td>{{item.role_name}}</td>
+											<td *ngIf="perBar">
+												<button type="button" class="btn btn-danger btn-sm"
+													style="margin-right: 10px;" (click)="delete(item)" *ngIf="perDel">删除
+												</button>
+												<button type="button" class="btn btn-success btn-sm"
+													(click)="edit(item)" *ngIf="perEdit">编辑
+												</button>
+											</td>
+										</tr>
+										<tr *ngIf="stace" class="nolist">
+											<td colspan="5">暂无数据</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="overlay" *ngIf='loadingDiv'>
+									<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div style="padding-top:25px">
+						<div class="onall" *ngIf="perDel">
+							<input type="checkbox" name="" id="All" (click)="selall($event.target.checked,lists)"
+								[(checked)]="selallatate">全选
+							<button class="btn btn-primary" style="margin-left: 30px;" (click)="massDelete()" [disabled]="batch.length==0" [class.daily]="batch.length==0">批量删除
+							</button>
+						</div>
+						<div class='page'>
+							<app-pagination
+								[pageParams]="{pageSize:pageSize,totalNum:totalNum,currentPage:currentPage,totalpage:totalPage,pageData:pageData,goPage:goPage}"
+								(changeCurPage)="getPageData($event)">
+							</app-pagination>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 添加弹出框 S -->
+		<div class="boxBg" *ngIf="addState">
+			<div class="eidtBox">
+				<div class="ediContent">
+					<div class="basicInfo">
+						<form>
+							<div class="info a">员工名称：
+								<input type="text" name="user" [(ngModel)]="username" minlength="4" maxlength="20"
+									placeholder="请输入4-20位字符，支持中文，英文和数字" (blur)="user_name($event)">
+								<span><i>*</i>必填项</span>
+							</div>
+							<div class="info b">登录账号：
+								<input type="text" name="login" [(ngModel)]="loginuser" minlength="6" maxlength="20"
+									placeholder="请输入6-20位字符，支持英文数字组合" (blur)="uservalue($event,1)" >
+								<span><i>*</i>必填项</span>
+							</div>
+							<div class="info c">登录密码：
+								<input type="text" name="pas" [(ngModel)]="loginpwd" minlength="6" maxlength="20"
+									placeholder="请输入6-20位字符，支持英文数字组合" (blur)="uservalue($event,2)"
+									>
+								<span><i>*</i>必填项</span>
+							</div>
+						</form>
+					</div>
+					<div class="rankInfo">
+						<h5 class="title">角色设置</h5>
+						<!-- 角色管理 -->
+						<div class="grade proxy">
+							<ul class="list">
+								<li *ngFor="let item of roleList;">
+									<input type="radio" name="roles" (click)="role($event,item.role_id)">
+									<span>{{item.role_name}}</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bgBottom">
+				<button class="footBtn cancle" type="button" (click)="close()">取消</button>
+				<button class="footBtn sure" type="button" (click)="confirm()">确定</button>
+			</div>
+		</div>
+		<!-- 编辑弹出框 -->
+		<div class="boxBg" *ngIf="editState">
+			<div class="eidtBox">
+				<div class="ediContent">
+					<div class="basicInfo">
+						<form>
+							<div class="info a">员工名称：
+								<input type="text" name="first" minlength="6" maxlength="20" [(ngModel)]="editAdminName"
+									placeholder="请输入4-20位字符，支持中文，英文和数字" disabled>
+								<span><i>*</i>必填项</span>
+							</div>
+							<div class="info b">登录名称：
+								<input type="text" name="second" minlength="6" maxlength="20"
+									[(ngModel)]="editLoginName" placeholder="请输入6-20位字符，支持英文数字组合" disabled>
+								<span><i>*</i>必填项</span>
+							</div>
+							<div class="info c">登录密码：
+								<input type="text" name="psd" value="" minlength="6" maxlength="20"
+									[(ngModel)]="editloginPsd" placeholder="请输入6-20位字符，支持英文数字组合"
+									onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
+								<span style="color:red">*选择修改</span>
+								<span class="tishi">注：不输入登录密码，即表示不修改登录密码</span>
+							</div>
+						</form>
+					</div>
+					<div class="rankInfo">
+						<h5 class="title">角色设置</h5>
+						<!-- 角色管理 -->
+						<div class="grade proxy">
+							<ul class="list">
+								<li *ngFor="let item of roleList">
+									<input type="radio" [(checked)]="item.active" name="role"
+										(click)="editsingelsel($event.target.checked,item)">
+									<span>{{item.role_name}}</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bgBottom">
+				<button class="footBtn cancle" type="button" (click)="close()">取消</button>
+				<button class="footBtn sure" type="button" (click)="sureEdit($event)">确定</button>
+			</div>
+			<!-- </perfect-scrollbar> -->
+		</div>
+	</div>
+	<!-- 消息 -->
+	<!-- 删除提示框 S -->
+	<div class="tableBox">
+		<div *ngIf="state">
+			<div class="maskup" (click)="close()"></div>
+			<div class="modal-dialog">
+				<div class="modal-content batchDeletion-content">
+					<div class="modal-header batchDeletion-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" (click)="close()">×</span></button>
+						<h4 class="modal-title">删除提示</h4>
+					</div>
+					<div class="modal-body batchDeletion-body">
+						<p>是否确定删除，该员工？</p>
+					</div>
+					<div class="modal-footer footer-btn">
+						<button type="button" class="btn btn-default pull-left" data-dismiss="modal"
+							(click)="close()">取消</button>
+						<button type="button" class="btn btn-primary" (click)="sureDelete()">确认</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>

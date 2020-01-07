@@ -1,0 +1,387 @@
+/* Developer：July
+Date:
+Description：角色管理 */
+
+.content-header {
+	height: 50px;
+	padding: 13px 2%;
+	display: flex;
+	justify-content: space-between;
+}
+i{
+	color: #666!important;
+}
+.box {
+	padding: 2%;
+	padding-bottom: 0px;
+	padding-top: 25px;
+}
+.table thead tr th {
+	line-height: 50px;
+	border-bottom-width: 0;
+}
+.content-header .breadcrumb {
+	position: static;
+	padding: 0;
+}
+.content-header h1 {
+	display: inline-block;
+	border-left: 6px solid rgb(26, 188, 156);
+	padding-left: 6px;
+}
+.breadcrumb li,
+.content-header h1 {
+	display: inline-block;
+	line-height: 24px;
+}
+.content {
+	overflow-y: scroll;
+	width: 96%;
+	margin: 0 auto;
+	padding: 0 0 20px 0;
+	height: calc(100vh - 120px);
+}
+table>tbody>tr>td {
+	width: 25%;
+	line-height: 2.428571;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #ddd;
+	border-bottom: none;
+	word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+table {
+	text-align: center;
+	border: none;
+}
+table thead{
+	display: table;
+    width: calc(100% - 8px);
+	table-layout: fixed;
+	background: #eee;
+}
+table tbody{
+	overflow-y: scroll;
+	overflow-x: hidden;
+    height: 600px;
+    display: block;
+}
+table tbody tr{
+	display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.table tbody tr:last-child{
+	border-bottom: 1px solid #ddd;
+}
+table>thead>tr>th {
+	text-align: center;
+	border: 1px solid #ddd;
+	border-bottom: none;
+	word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+input {
+	margin: 0px;
+}
+.overlay {
+	width: 100%;
+	height: 200px;
+}
+.overlay>i,
+.content-header {
+	color: #666 !important;
+}
+.num {
+	font-style: normal;
+	color: red;
+}
+.pageNum {
+	width: 30px;
+	height: 34px;
+	display: inline;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+.pagination>li {
+	margin-right: 8px;
+}
+.maskup {
+	background: rgba(0, 0, 0, .3);
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+}
+.pate {
+	margin: 0 auto;
+	text-align: left;
+}
+.content-wrapper {
+	min-height: 960px;
+	background: rgba(246, 246, 249);
+	overflow-y: auto;
+}
+.modal-dialog {
+	position: absolute;
+	top: 45%;
+	left: 45%;
+	transform: translate(-50%, -50%);
+	z-index: 99
+}
+.btn_two {
+	width: 123px;
+	height: 35px;
+	margin: 0 auto;
+	background: #fff;
+	border: 1px solid rgba(204, 204, 204, 1);
+	margin-top: 20px;
+	border-radius: 5px;
+	background-color: rgba(66, 139, 202, 1);
+	color: #FFFFFF;
+}
+.roleName {
+	width: 300px;
+	padding: 0 8px;
+	border: 1px solid #ccc;
+	height: 40px;
+	line-height: 40px;
+	box-shadow: -1px -1px 0 #ccc;
+}
+.btn_two:hover {
+	opacity: 0.7;
+}
+.permission {
+	width: 100%;
+	background-color: #fff;
+	position: relative;
+	top: -405px;
+	z-index: 1111;
+}
+.key {
+	opacity: 0;
+}
+/*编辑，添加*/
+.editMsg {
+	background: #fff;
+	padding: 0px;
+	height: 50px;
+	line-height: 50px;
+}
+.icon {
+	color: #ccc;
+	padding-left: 15px;
+}
+.icon p {
+	height: 18px;
+	width: 5px;
+	background: rgba(26, 188, 156, 1);
+	position: absolute;
+	top: 15px;
+	line-height: 50px;
+}
+.icon span {
+	margin-left: 10px;
+}
+.ediContent {
+	width: 100%;
+	margin: 0 auto;
+	background: #fff;
+}
+.basicInfo,
+.rankInfo,
+.deposits,
+.promission {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 20px;
+	overflow: hidden;
+}
+.eidtBox {
+	width: 100%;
+}
+.info {
+	float: left;
+	width: 95%;
+	margin-top: 20px;
+}
+.info>input {
+	width: 280px;
+	padding: 5px 8px;
+	border: 2px solid #f0f0f0;
+	box-shadow: -2px -2px #ccc;
+}
+.b {
+	margin-left: 40px;
+}
+.title {
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-indent: 1em;
+	background: #f2f2f2;
+}
+.remarks {
+	margin-left: 30px;
+}
+.remarksInfo {
+	color: #ccc;
+	margin-left: 20px;
+}
+.worker-power-border01 {
+	width: 100%;
+	margin-bottom: 10px;
+	height: 130px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border: 1px dashed #868686;
+}
+.border01-checkbox01 {
+	width: 100%;
+	margin-left: 10px;
+	padding-top: 18px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	color: #666666;
+}
+.border01-checkbox02 {
+	float: left;
+	padding-left: 30px;
+	font-size: 14px;
+	color: #666666;
+	height: 25px;
+}
+.list {
+	overflow: hidden;
+	margin-top: 10px;
+}
+.list>li {
+	font-size: 14px;
+	display: inline;
+	float: left;
+	margin-left: 60px;
+}
+.depInfo {
+	overflow: hidden;
+}
+.prompt {
+	display: block;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+.amount {
+	margin-left: 20px;
+}
+.eidtBox {
+	width: 92%;
+	background: #fff;
+	margin: 0 auto;
+}
+.boxBg {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background: #fff;
+	border-top: 3px solid #d2d6de;
+}
+.bgBottom {
+	width: 92%;
+	background-color: #fff;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 60px;
+	position: relative;
+}
+.footBtn {
+	width: 70px;
+	padding: 8px 5px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	margin-top: 40px;
+}
+.cancle {
+	color: #ccc;
+	background: #fff;
+	border: 1px solid #ccc;
+	margin-right: 20px;
+}
+.cancle:hover {
+	color: #00dbe3;
+	border: 1px solid #00dbe3;
+}
+.sure {
+	color: #fff;
+	background: #337ab7;
+	margin-left: 20px;
+}
+.sure:hover {
+	background-color: rgba(71, 120, 200, .4);
+}
+.btn {
+	margin-bottom: 5px;
+}
+i {
+	color: red
+}
+.table {
+	margin-top: 20px;
+}
+/* 弹窗样式 */
+.btn-default {
+	width: 111px;
+	height: 35px;
+	line-height: 22px;
+	color: #7a7979;
+	background-color: #fff;
+	border-color: #a9a9a9;
+}
+.btn-default:hover {
+	color: #c2c2c2;
+	border: 1px solid #d5d5d5;
+	background: #fff;
+}
+.modal-footer {
+	display: flex;
+	justify-content: space-around;
+	border-top: 1px solid #e5e5e5;
+}
+.modal-footer .btn-primary {
+   width: 111px;
+   height: 35px;
+   line-height: 22px;
+   background: #3782ba;
+   color: #fff;
+   border-color: #898888;
+}
+.batchDeletion-content {
+    width: 450px;
+    height: 230px;
+    border-radius: 5px;
+	border: none;
+	margin-right: 0;
+}
+ .batchDeletion-header {
+    width: 450px;
+    height: 50px;
+    background: inherit;
+    background-color: #3c8dbc;
+    color: #666666;
+}
+.batchDeletion-header .modal-title,
+.batchDeletion-header .close {
+	color: #fff;
+	opacity: 1 !important;
+}
+ .batchDeletion-body {
+    text-align: center;
+    width: 450px;
+    height: 117px;
+	background-color: rgba(255, 255, 255, 1);
+	padding: 40px 60px;
+}
+.batchDeletion-body p {
+	margin: 10px 0 10px;
+}	/* 弹窗样式结束 */

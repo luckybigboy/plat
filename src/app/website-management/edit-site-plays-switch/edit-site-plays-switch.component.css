@@ -1,0 +1,213 @@
+/* Developer：July
+Date:
+Description：修改彩票玩法开关-详情 */
+
+.lottery_right {
+	margin-top: 20px;
+}
+.lottery_right .prompt {
+	font-size: 14px;
+	height: 34px;
+	line-height: 34px;
+	border: 1px solid rgba(171, 220, 255, 1);
+	background-color: rgba(240, 250, 255, 1);
+	border-radius: 4px;
+	color: #657180;
+	margin-bottom: 9px;
+	position: relative;
+	padding-left: 25px;
+}
+.lottery_right .prompt::before {
+	content: '';
+	position: absolute;
+	top: 8px;
+	left: 5px;
+	width: 15px;
+	height: 15px;
+	background: url(/assets/img/content-home/xinjin.png) no-repeat;
+	background-size: 100%;
+}
+.rig_titie,
+.setting-select {
+	font-weight: bold;
+	font-size: 16px;
+	background: rgba(246, 247, 249, 1);
+	height: 50px;
+	line-height: 50px;
+	border: 1px solid #ccc;
+	padding-left: 20px;
+}
+.setting-select {
+	overflow: hidden;
+	clear: both;
+}
+.setting-site {
+	font-size: 16px;
+	height: 60px;
+	line-height: 60px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+.setting-site span {
+	padding: 7px 25px;
+	margin-left: 20px;
+	background: rgba(246, 247, 249, 1);
+	color: #666;
+}
+.setting-select {
+	margin-top: 15px;
+}
+.btns {
+	float: right;
+	overflow: hidden;
+	margin-top: 6px;
+}
+.cancelBtn {
+	float: right;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	margin-right: 60px;
+	border: 1px solid #c7c7c7;
+	border-radius: 3px;
+	background: white;
+	color: #adadad;
+}
+.keepBtn {
+	float: right;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	margin-right: 60px;
+	background: rgba(64, 142, 186, 1);
+	color: white;
+	border: none;
+	border-radius: 3px;
+}
+.keepBtn:hover {
+	background: rgba(64, 142, 186, .8);
+	color: white;
+}
+button {
+	margin-left: 10px;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	border: 0px;
+	color: white;
+	border-radius: 2px;
+	background: rgba(64, 142, 186, 1);
+}
+.odds_list {
+	margin-top: 10px;
+}
+.odds_list ul {
+	overflow: hidden;
+	clear: both;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+.odds_list ul li {
+	text-align: center;
+	float: left;
+	width: 10%;
+	height: 40px;
+	line-height: 40px;
+}
+.odds_list ul li span {
+	font-weight: bold;
+	font-size: 16px;
+	color: #333;
+}
+.lottery_list {
+	overflow: hidden;
+	clear: both;
+	overflow-y: scroll;
+	height: 50vh;
+}
+.game_way {
+	flex: 1;
+}
+.game_way ul {
+	border-bottom: 1px solid #ccc;
+}
+.game_way ul li {
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+}
+.odds_list ul li.act {
+	border-bottom: 2px solid rgba(60, 141, 188, 1);
+}
+.game_way:last-child ul {
+	border-right: 1px solid #ccc;
+}
+.lottery_list {
+	display: flex;
+}
+.lottery_list ul {
+	overflow: hidden;
+	clear: both;
+	border-left: 1px solid #ccc;
+}
+.lottery_list ul li {
+	border-top: 1px solid #ccc;
+}
+.lottery_list ul li span {
+	margin-left: 10px;
+	color: #666;
+	font-size: 14px;
+}
+.lottory_list {
+	color: #333;
+	font-weight: bold;
+	background: rgba(246, 247, 249, 1);
+}
+.odds_list input,
+.lottery_list input {
+	margin: 0px;
+}
+.play_list ul {
+	border: 1px solid #ccc;
+	border-bottom: none;
+}
+input {
+	border: 1px solid #ccc;
+	height: 25px;
+	text-align: center;
+}
+/* loading 正在加载中 */
+.overlay {
+	width: 50px;
+	height: 43px;
+	margin: 80px auto;
+}
+.overlay>i,
+.content-header {
+	color: #666 !important;
+}
+.content-header {
+	height: 50px;
+	padding: 13px 2%;
+	display: flex;
+	justify-content: space-between;
+}
+.content-header .breadcrumb {
+	position: static;
+	padding: 0;
+	line-height: 24px;
+}
+.content-header h1 {
+	display: inline-block;
+	border-left: 6px solid rgb(26, 188, 156);
+	padding-left: 6px;
+	line-height: 24px;
+}
+.breadcrumb li,
+.content-header h1 {
+	display: inline-block;
+}
+.content {
+	margin: 0;
+	padding: 0 2%;
+}

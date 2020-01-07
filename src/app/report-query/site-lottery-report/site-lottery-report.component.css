@@ -1,0 +1,284 @@
+/* Developer：July
+Date:
+Description：站点彩票报表 */
+
+.box {
+	width: 100%;
+	margin: 0;
+	padding: 2%;
+}
+h5 {
+	font-size: 14px;
+	color: #999;
+	margin-top: 0;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-left: 20px;
+}
+.overlay {
+	width: 50px;
+	height: 43px;
+	margin: 80px auto;
+}
+.overlay>i,
+.content-header {
+	color: #666 !important;
+}
+.payingMethods {
+	width: 15%;
+	background-color: #fff;
+	border-radius: 8px;
+	float: left;
+	border: 1px solid #ccc;
+	height: 80vh;
+}
+.payingMethods ul {
+	width: 92%;
+	margin: 0 auto;
+}
+.payingMethods ul li {
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	margin-top: 20px;
+	cursor: pointer;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+}
+.act {
+	background-color: #337ab7;
+	color: #fff;
+}
+.payment {
+	width: 83%;
+	background-color: #fff;
+	border-radius: 8px;
+	float: right;
+	border: 1px solid #ccc;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 80vh;
+}
+.payment select {
+	background: #fff;
+	width: 241px;
+	height: 41px;
+}
+.card-s span {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+table {
+	width: 70%;
+	border: 1px solid #ccc;
+	margin-top: 30px;
+	margin-left: 50px;
+	border-radius: 8px;
+	min-height: cacl(80vh - 70px);
+}
+th {
+	background-color: #f2f2f2;
+	text-align: center;
+	padding: 15px;
+	box-sizing: border-box;
+}
+td {
+	text-align: center;
+	padding: 15px;
+	box-sizing: border-box;
+}
+.form {
+	padding-left: 5px;
+	padding-right: 10px;
+}
+.form table {
+	margin-left: 120px;
+	margin-top: 30px;
+}
+.form th {
+	background-color: rgba(242, 242, 242, 1);
+	height: 50px;
+	width: 130px;
+	text-align: center;
+	border: rgba(228, 228, 228, 1) solid 2px;
+}
+.form td {
+	background-color: #ffffff;
+	height: 50px;
+	width: 130px;
+	text-align: center;
+	border: rgba(228, 228, 228, 1) solid 2px;
+}
+.time_day ul {
+	width: 67%;
+}
+.time_day ul li {
+	width: 100%;
+	border: 1px solid rgba(221, 223, 231, 1);
+	border-radius: 5px;
+	margin-top: 20px;
+	cursor: pointer;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 35px;
+	background-color: rgba(245, 246, 250, 1);
+	color: #999999;
+}
+.time_day ul li.timelist {
+	border-color: rgba(26, 188, 156, 1);
+	border-width: 2px;
+	color: rgba(26, 188, 156, 1);
+	background-color: #fff;
+}
+.card-s span {
+	border-radius: 4px;
+	display: block;
+	height: 68px;
+	width: 68px;
+	text-align: center;
+	font-size: 45px;
+	line-height: 45px;
+	background: #fff;
+}
+.card-s {
+	float: left;
+}
+.card-s span>img {
+	max-width: 100%;
+}
+.card-category {
+	margin-top: 40px;
+	margin-left: 102px;
+}
+.card-title {
+	margin-top: -1px;
+	margin-left: 79px;
+}
+.material-icons {
+	background-color: #ff8c2a;
+	border-radius: 8px;
+	display: block;
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	padding: 9px;
+	margin-top: 28px;
+	box-shadow: 2px 4px 9px #ff932e96;
+}
+.material-icons>img {
+	max-width: 100%;
+}
+.amount-icons {
+	background-color: #00ba59;
+	border-radius: 8px;
+	display: block;
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	padding: 9px;
+	margin-top: 28px;
+	box-shadow: 3px 3px 9px #00c1616e;
+}
+.amount-icons>img {
+	max-width: 100%;
+}
+.lotty {
+	border-top: 3px solid rgba(228, 228, 228, 1);
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	text-align: center;
+	margin: auto;
+	border-bottom: 1px solid rgba(228, 228, 228, 1);
+	height: 64px;
+	line-height: 64px;
+}
+.lotty h2 {
+	font-size: 16px;
+}
+.accound_icon {
+	display: block;
+	height: 64px;
+	line-height: 64px;
+	width: 30px;
+}
+.accound_icon>img {
+	max-width: 100%;
+}
+.proportion {
+	height: 102px;
+	position: relative;
+}
+.proportion ul {
+	display: flex;
+}
+.proportion ul li {
+	width: 25%;
+}
+.proportion ul li:nth-of-type(1) {
+	border-right: 1px solid rgba(228, 228, 228, 1);
+}
+.proportion ul li:nth-of-type(2) {
+	border-right: 1px solid rgba(228, 228, 228, 1);
+}
+.proportion ul li:nth-of-type(3) {
+	border-right: 1px solid rgba(228, 228, 228, 1);
+}
+.proportion ul li span {
+	display: block;
+}
+.treeview-menu {
+	display: block;
+	position: relative;
+	top: -31px;
+	margin: auto;
+}
+.treeview-menu table {
+	border: none;
+	width: 90%;
+}
+.treeview-menu td {
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+}
+.red {
+	color: red !important;
+}
+.green {
+	color: #1ABC9C;
+}
+.content-header {
+	height: 50px;
+	padding: 13px 2%;
+	display: flex;
+	justify-content: space-between;
+}
+.content-header .breadcrumb {
+	position: static;
+	padding: 0;
+	line-height: 24px;
+}
+.content-header h1 {
+	display: inline-block;
+	border-left: 6px solid rgb(26, 188, 156);
+	padding-left: 6px;
+	line-height: 24px;
+}
+.breadcrumb li,
+.content-header h1 {
+	display: inline-block;
+}
+.content {
+	margin: 0;
+	padding: 0 2%;
+}
+@media (max-width:1550px) {
+	.card-title {
+		font-size: 20px;
+	}
+	.row .col-md-6 {
+		width: 25% !important;
+	}
+}

@@ -1,0 +1,119 @@
+<!-- Developer：July
+Date:
+Description：开奖结果 -->
+
+<div class="content-wrapper" style="min-height:960px;background: rgba(246, 246, 249);position: relative;">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>开奖结果</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 彩票管理</li>
+			<li>开奖结果</li>
+		</ol>
+	</section>
+	<app-alert #child [stock]="stock"></app-alert>
+	<!-- 中间合计 S  -->
+	<section class="content" style="margin-top: 10px;">
+		<div class="box" style="margin:0 auto;">
+			<div class="box-body">
+				<div class="lottery_left">
+					<div class="menu_container">
+						<ul>
+							<li>
+								<div class="menu_title" (click)="officalResult()"><span>全部彩种</span></div>
+							</li>
+							<li *ngFor="let em of gameList;let i=index">
+								<div class="menu_title" (click)="sete(i)">
+									<span>{{em.model_key|lotteryDic}}</span>
+									<i class="fa fa-angle-left pull-right  arrow_up" *ngIf="!em.sate"></i>
+									<i class="fa fa-angle-left pull-right" *ngIf="em.sate"></i>
+								</div>
+								<ul class="menu_content" *ngIf="em.sate">
+									<li *ngFor="let item of em.game_list;let a=index" [class.active]='item.act'
+										(click)="gameBtn(item.game_key,item.game_name,i,a)">
+										{{item.game_key|lotteryDic}}
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="lottery_right">
+					<div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+						<div class="row" style="overflow: hidden;margin-bottom: 20px;">
+							<div class="col-sm-10">
+								<div id="example1_filter" class="dataTables_filter">
+									<label>
+										期号：<input class="dateNum" type="text" class="form-control input-sm"
+											placeholder="请输入期号" aria-controls="example1" [(ngModel)]="Issue">
+									</label>
+									<button type="button" (click)="research()" class="btn btn-primary"
+										style="margin-left:10px;padding:6px 25px;">搜索
+									</button>
+								</div>
+							</div>
+						</div>
+						<form method="post">
+							<div class="row">
+								<div class="col-sm-12" id="exportTable">
+									<table id="example1" class="table table-bordered table-striped dataTable"
+										role="grid" aria-describedby="example1_info">
+										<thead>
+											<tr role="row" class="odd">
+												<th class="sorting_asc" tabindex="0" aria-controls="example1"
+													rowspan="1" colspan="1" aria-sort="ascending"
+													aria-label="Rendering engine: activate to sort column descending">
+													彩票名称
+												</th>
+												<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+													colspan="1" aria-label="Browser: activate to sort column ascending">
+													开奖号码
+												</th>
+												<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+													colspan="1"
+													aria-label="Platform(s): activate to sort column ascending">开奖期号
+												</th>
+												<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+													colspan="1"
+													aria-label="Engine version: activate to sort column ascending">开盘时间
+												</th>
+												<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+													colspan="1"
+													aria-label="CSS grade: activate to sort column ascending">封盘时间
+												</th>
+												<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1"
+													colspan="1"
+													aria-label="CSS grade: activate to sort column ascending">开奖时间
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr role="row" class="odd" *ngFor="let item of lists">
+												<td>{{item.game_key|lotteryDic}}</td>
+												<td>{{item.num}}</td>
+												<td>{{item.period}}</td>
+												<td>{{item.start_time}}</td>
+												<td>{{item.stop_time}}</td>
+												<td>{{item.open_time}}</td>
+											</tr>
+											<tr *ngIf="staus" class="nolist">
+												<td colspan="6" class="nolist">暂无数据</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="overlay" *ngIf='loadingDiv'>
+										<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+									</div>
+								</div>
+							</div>
+						</form>
+						<app-pagination
+							[pageParams]="{pageSize:pageSize,totalNum:totalNum,currentPage:pageSize/pageData,totalpage:totalPage,pageData:pageData,goPage:goPage}"
+							(changeCurPage)="getPageData($event)">
+						</app-pagination>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

@@ -1,0 +1,113 @@
+/* Developer：July
+Date:
+Description：第三方支付方式列表 */
+
+.odds_list table thead td {
+	line-height: 50px;
+	background: rgba(246, 247, 249, 1);
+	border-bottom-width: 0;
+}
+.content-header {
+	height: 50px;
+	padding: 13px 2%;
+	display: flex;
+	justify-content: space-between;
+	color: #666;
+}
+.content-header h1 {
+	border-left: 6px solid rgb(26, 188, 156);
+	padding-left: 6px;
+	line-height: 25px;
+}
+.content-header .breadcrumb {
+	position: initial;
+	line-height: 13px;
+}
+.box {
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 3% 0;
+}
+h5 {
+	font-size: 14px;
+	color: #999;
+	margin-top: 0;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.table>tbody>tr>td {
+	line-height: inherit!important;
+}
+table tbody tr:nth-of-type(odd) {
+	background: #ffff;
+}
+table tbody tr:nth-of-type(even) {
+	background: #f4f4f4;
+}
+/* 设置滚动条样式 */
+::-webkit-scrollbar {
+	width: 2px;
+	height: 2px;
+}
+.payingMethods {
+	min-width: 19%;
+	background-color: #fff;
+	border-radius: 8px;
+	float: left;
+	border: 1px solid #ccc;
+	margin-left: 3%;
+	overflow-y: scroll;
+	min-height: 80vh;
+}
+.table-bordered>thead>tr>th {
+	border-bottom-width: 0px;
+}
+.payingMethods ul {
+	width: 92%;
+	margin: 0 auto;
+	height: 45vh;
+}
+.payingMethods li {
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	margin-top: 20px;
+	cursor: pointer;
+	text-align: center;
+	padding: 15px 0;
+}
+.payingMethods li:last-child {
+	margin-bottom: 15px;
+}
+.active {
+	background-color: #4778c8;
+	color: #fff;
+}
+.payment {
+	width: 70%;
+	background-color: #fff;
+	border-radius: 8px;
+	float: right;
+	border: 1px solid #ccc;
+	min-height: 80vh;
+	margin-right: 3%;
+}
+.nolist {
+	height: 140px;
+	line-height: 140px;
+	font-size: 20px;
+	padding: 50px;
+	text-align: center;
+	vertical-align: middle;
+}
+table {
+	width: 70%;
+	margin-top: 30px;
+	margin-left: 50px;
+	border-radius: 8px;
+	min-height: cacl(80vh - 70px);
+}
+th,
+td {
+	text-align: center;
+}

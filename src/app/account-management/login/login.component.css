@@ -1,0 +1,58 @@
+/* Developer：July
+Date:
+Description：登录 */
+
+.wrapper {
+	width: 100%;
+	height: auto;
+	z-index: 999999;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.login-box {
+	height: 100vh;
+}
+.login-logo p {
+	color: #fff;
+}
+.login_no {
+	background: #79b2f7 !important;
+}
+.overlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.form-group p {
+	color: red;
+}
+input {
+	border: 1px solid #ccc;
+	margin: 0px;
+}
+.btn-block {
+	display: block;
+	width: 90%;
+	margin: 10px auto;
+}
+.modal {
+	display: none;
+	opacity: 1;
+	visibility: visible;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 350px;
+	margin-left: -175px;
+	margin-top: -50px;
+	height: 100px;
+	border-radius: 10px;
+	z-index: 99;
+	background: rgba(0, 0, 0, 0.64);
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	line-height: 100px;
+}

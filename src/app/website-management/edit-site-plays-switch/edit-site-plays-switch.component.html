@@ -1,0 +1,86 @@
+<!-- Developer：July
+Date:
+Description：修改彩票玩法开关-详情 -->
+
+<div class="content-wrapper" style="min-height:960px;background: rgba(246, 246, 249)">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>站点彩票玩法开关</h1>
+        <ol class="breadcrumb">
+            <li><i class="fa fa-yen"></i> 网站管理</li>
+            <li class="active">站点彩票玩法开关</li>
+        </ol>
+    </section>
+    <section class="content" style="margin-top: 10px;">
+        <div class="box" style="margin:0 auto;">
+            <div class="box-body">
+                <div class="lottery_right">
+                    <div class="prompt">
+                        温馨提醒您：请及时保存您修改的数据。勾选即为开放。
+                    </div>
+                    <div *ngIf="this.types==1">
+                        <div class="rig_titie">批量设置站点</div>
+                        <div class="setting-site">
+                            <span *ngFor="let item of siteName">{{item}}</span>
+                        </div>
+                    </div>
+                    <div *ngIf="this.types==2">
+                        <div class="rig_titie">设置站点</div>
+                        <div class="setting-site">
+                            <span>{{siteName}}</span>
+                        </div>
+                    </div>
+                    <div class="setting-select">
+                        <span >设置玩法开关</span>
+                        <div class="btns" *ngIf="updatabtn"><button class="keepBtn" (click)="getPlayAll()" >保存</button><button
+                                class="cancelBtn" (click)="clear()">取消</button></div>
+                    </div>
+                    <div class="odds_list">
+                        <ul class="lotterys_type" >
+                            <li *ngFor="let em of Model_keys;let i=index" [ngClass]="{'act': falg==(i+1)}"
+                                (click)="modelbtn(i)">
+                                <span>{{em|lotteryDic}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="lottery_list" *ngIf="!loadingDivs" >
+                        <div class="game_way" *ngIf="updatabtn">
+                            <ul>
+                                <li class="lottory_list">
+                                    <input type="checkbox" class="check-switch check-switch-anim" [(ngModel)]="allbut"
+                                        (click)="selall($event.target.checked,game_keys)"> 全选
+                                </li>
+                                <li *ngFor="let e of play_lists;let a=index">
+                                    <span>
+                                        <input type="checkbox" [(checked)]="e.active"
+                                            (click)="playall($event.target.checked,a)" />
+                                    </span>
+                                    <span>{{e.play_key|lotteryDic}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="game_way" *ngFor="let item of game_keys">
+                            <ul>
+                                <li class="lottory_list"><input type="checkbox" [(ngModel)]="game_list[item].isOff"
+                                        [(checked)]="game_list[item].isOff"
+                                        (click)="singelsel($event.target.checked,item,game_keys)" [disabled]='dis'>全选<span>{{item|lotteryDic}}</span>
+                                </li>
+                                <li *ngFor="let list of game_list[item].play_list;let i= index">
+                                    <span>
+                                        <input type="checkbox" [(ngModel)]="list.acceptable"
+                                            (click)="radioswitch(item,$event.target.checked,i,game_keys)" [disabled]='dis' />
+                                    </span>
+                                    <span>{{list.play_key|lotteryDic}}</span>
+                                </li>
+                            </ul>
+                        </div>
+					</div>
+					<div class="overlay" *ngIf='loadingDivs'>
+						<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+					</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <app-alert #child [stock]="stock"></app-alert>
+</div>

@@ -1,0 +1,144 @@
+<!-- Developer：July
+Date:
+Description：站点彩票报表 -->
+
+<div class="content-wrapper" style="min-height:960px;">
+	<section class="content-header">
+		<h1>站点彩票报表</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 报表查询</li>
+			<li class="active">站点彩票报表</li>
+		</ol>
+	</section>
+	<section class="content" style="margin-top: 10px;">
+		<div class="box">
+			<div style="overflow: hidden;clear: both;">
+				<div class="payingMethods" style="float: left;">
+					<h5 class="title">站点列表</h5>
+					<ul>
+						<li (click)="tabbtn(item.site_key,i)" class="list" [ngClass]="{'act':flag1== (i+1)}"
+							*ngFor="let item of siteList;let i = index">{{item.site_name}}
+						</li>
+					</ul>
+				</div>
+				<div class="payment" style="position:relative;float:right">
+					<h5>彩票报表：</h5>
+					<div class="time_day">
+						<ul style="display: flex">
+							<li [ngClass]="{'timelist': timestate}" (click)="timetab1('today')">今日</li>
+							<li [ngClass]="{'timelist': timestate1}" (click)="timetab2('yesterday')">昨日</li>
+							<li [ngClass]="{'timelist': timestate2}" (click)="timetab3('thisweek')">本周</li>
+							<li [ngClass]="{'timelist': timestate3}" (click)="timetab4('lastweek')">上周</li>
+							<li [ngClass]="{'timelist': timestate4}" (click)="timetab5('thismonth')">本月</li>
+							<li [ngClass]="{'timelist': timestate5}" (click)="timetab6('lastmonth')">上月</li>
+						</ul>
+					</div>
+					<!-- 趋势表 -->
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6" style="overflow: hidden;clear: both;">
+							<div class="card-s">
+								<span><img src="../../../assets/images/index001.png"></span>
+							</div>
+							<p class="card-category">{{tit}}投注总额</p>
+							<h3 class="card-title">{{betAmount|tranNumber}}</h3>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="card-s">
+								<i class="amount-icons">
+									<img src="../../../assets/images/amount.png">
+								</i>
+							</div>
+							<p class="card-category">{{tit}}派彩额</p>
+							<h3 class="card-title">{{bonusAmount|tranNumber}}</h3>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="card-s">
+								<i class="material-icons">
+									<img src="../../../assets/images/zudan.png">
+								</i>
+							</div>
+							<p class="card-category">{{tit}}注单</p>
+							<h3 class="card-title">{{betCount}}</h3>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="card-s">
+								<span><img src="../../../assets/images/index003.png"></span>
+							</div>
+							<p class="card-category">{{tit}}损益总额</p>
+							<h3 class="card-title">{{profitAmount|tranNumber}}</h3>
+						</div>
+					</div>
+					<div class="overlay" *ngIf='login_btn'>
+						<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+					</div>
+					<!-- 时时彩 -->
+					<div class="lotty_one" *ngFor="let item of gamekeys;let i=index">
+						<div class="lotty">
+							<h2>{{item|gameDicy}}</h2>
+							<div class="accound_icon" id="refresh" (click)='turnback(i)' *ngIf='lotteryList[item].sate'>
+								<a data-toggle="tab" aria-expanded="false" class="fa fa-chevron-up"></a>
+							</div>
+							<div class="accound_icon" id="refresh" (click)='turnback(i)'
+								*ngIf='!lotteryList[item].sate'>
+								<a data-toggle="tab" aria-expanded="true" class="fa fa-chevron-down"></a>
+							</div>
+						</div>
+						<div class="proportion" *ngIf='!lotteryList[item].sate'>
+							<div style="height:80px;text-align: center;margin-top: 20px;">
+								<ul>
+									<li>
+										<span style="font-size: 14px;
+                                            color: #1ABC9C;">{{lotteryList[item].bet_rate }}%</span>
+										<span>{{lotteryList[item].bet_amount|tranNumber}}</span>
+										<span>投注额以及所占比例</span>
+									</li>
+									<li>
+										<span style="font-size: 14px;
+                                            color: #1ABC9C;">{{lotteryList[item].bet_count_rate}}%</span>
+										<span>{{lotteryList[item].bet_count}}</span>
+										<span>注单量以及所占比例</span>
+									</li>
+									<li>
+										<span>{{lotteryList[item].bonus_amount|tranNumber}}</span>
+										<span>派彩额</span>
+									</li>
+									<li>
+										<span></span>
+										<span>{{lotteryList[item].profit_amount|tranNumber}}</span>
+										<span>损益</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="treeview-menu" *ngIf='lotteryList[item].sate'>
+							<table border="0">
+								<thead>
+									<tr>
+										<td>彩票名称</td>
+										<td>投注总额</td>
+										<td>投注额所占比例</td>
+										<td>注单量</td>
+										<td>注单量所占比例</td>
+										<td>派彩额</td>
+										<td>损益</td>
+									</tr>
+									<tr *ngFor="let em of lotteryList[item].list">
+										<td>{{em.game_name}}</td>
+										<td>{{em.bet_amount | tranNumber}}</td>
+										<td>{{em.bet_rate }}%</td>
+										<td>{{em.bet_count}}</td>
+										<td>{{em.bet_count_rate }}%</td>
+										<td>{{em.bonus_amount|tranNumber}}</td>
+										<td [ngClass]="em.profit_amount<0?'red':'green'">{{em.profit_amount|tranNumber}}
+										</td>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>

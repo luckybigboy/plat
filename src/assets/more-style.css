@@ -1,0 +1,105 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font: 12px Arial, Tahoma, 宋体;
+    color: #000;
+}
+
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+button {
+    border: 0;
+}
+
+h2,
+h3 {
+    font-size: 14px;
+}
+
+button,
+input,
+select,
+textarea,
+label {
+    vertical-align: middle;
+    outline: none;
+}
+
+img {
+    vertical-align: middle;
+    border: none;
+    display: inline-block;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #0c0c0c;
+    vertical-align: baseline;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    word-wrap: break-word;
+    word-break: break-all;
+    _height: 100%;
+}
+
+
+/*输入框*/

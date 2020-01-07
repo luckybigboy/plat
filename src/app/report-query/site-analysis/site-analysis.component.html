@@ -1,0 +1,60 @@
+<!-- Developer：July
+Date:
+Description：站点分析 -->
+
+<div class="content-wrapper" style="min-height:960px;">
+	<section class="content-header">
+		<h1>站点分析</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 报表查询</li>
+			<li class="active">站点分析</li>
+		</ol>
+	</section>
+	<section class="content" style="margin-top: 10px;">
+		<div class="box">
+			<div style="overflow: hidden;clear: both;">
+				<div class="payingMethods" style="float: left;">
+					<h5 class="title">站点列表</h5>
+					<ul class="siteList">
+						<li *ngFor="let item of siteList;let i=index" [ngClass]="{'act':flag1==(i+1)}" class="list"
+							(click)="tab1(i,item.site_key)">{{item.site_name}}
+						</li>
+					</ul>
+				</div>
+				<div class="payment" style="overflow: hidden;position: relative;float: right;">
+					<h5>站点分析</h5>
+					<ul class="analyList">
+						<li id="first" class="time on" [class.on]="isShow1" (click)="day()">按日</li>
+						<li class="time" (click)="week()" [class.on]="isShow2">按周</li>
+						<li id="last" class="time" (click)="month()" [class.on]="isShow3">按月</li>
+					</ul>
+					<div class="charts">
+						<div class="chart">
+							<echarts-ng2 [option]="chartOption"
+								[style]="{'width': '100%', 'height': '400px', 'display': 'inline-block'}">
+							</echarts-ng2>
+						</div>
+						<div class="all">
+							<h2>统计</h2>
+							<ul *ngFor="let items of infolists">
+								<li class="all_one">
+									<span>{{tit}}投注额</span>
+									<h4>{{items.bet_all|tranNumber}}</h4>
+								</li>
+								<li class="all_one">
+									<span>{{tit}}会员增长</span>
+									<h4>{{items.user_register}}</h4>
+								</li>
+								<li class="all_one">
+									<span>{{tit}}损益</span>
+									<h6>{{items.profit_all| tranNumber}}</h6>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<app-alert #child [stock]="stock"></app-alert>

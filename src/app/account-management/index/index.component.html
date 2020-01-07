@@ -1,0 +1,178 @@
+<!-- Developer：July
+Date:
+Description：首页 -->
+
+<!-- 首页内容区 S -->
+<div class="content-wrapper">
+	<section class="content-header">
+		<h1>首页</h1>
+		<ol class="breadcrumb">
+			<li class="active">首页</li>
+		</ol>
+	</section>
+	<!-- 中间合计 S  -->
+	<section class="content">
+		<div class="content-btn-list">
+			<div class="nav-tabs-custom">
+				<ul class="nav nav-tabs pull-right">
+					<li class="">
+						<a href="#tab_1" data-toggle="tab" aria-expanded="false" (click)='getDay("yesterday")'>昨日</a>
+					</li>
+					<li class="active">
+						<a href="#tab_1" data-toggle="tab" aria-expanded="true" (click)='getDay("today")'>今日</a>
+					</li>
+					<li class="">
+						<a href="#tab_1" data-toggle="tab" aria-expanded="false" (click)='getDay("thisWeek")'>本周</a>
+					</li>
+					<li class="">
+						<a href="#tab_1" data-toggle="tab" aria-expanded="false" (click)='getDay("LastWeek")'>上周</a>
+					</li>
+					<li class="">
+						<a href="#tab_1" data-toggle="tab" aria-expanded="false" (click)='getDay("thisMonth")'>本月</a>
+					</li>
+					<li class="">
+						<a href="#tab_1" data-toggle="tab" aria-expanded="false" (click)='getDay("LastMonth")'>上月</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div style="display:flex">
+			<div style="width:65%">
+				<div class="left_text">
+					<h4>{{tit}}全部统计</h4>
+					<ul class="row head" style="margin-top:10px;" *ngFor="let item of alldata">
+						<li>
+							<div class="info-box" style="display: flex">
+								<div class="info-box-content" style="float: right;">
+									<span class="info-box-text">总会员（人）</span>
+									<span class="info-box-number">{{item.user_all}}</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="info-box" style="display: flex">
+								<div class="info-box-content" style="float: right;">
+									<span class="info-box-text">活跃会员（人）</span>
+									<span class="info-box-number">{{item.user_active}}</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="info-box" style="display: flex">
+								<div class="info-box-content" style="float: right;">
+									<span class="info-box-text">新注册会员（人）</span>
+									<span class="info-box-number">{{item.user_register}}</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="info-box" style="display: flex">
+								<div class="info-box-content" style="float: right;">
+									<span class="info-box-text">首充会员（人）</span>
+									<span class="info-box-number">{{item.user_first_deposit}}</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="info-box" style="display: flex">
+								<div class="info-box-content" style="float: right;">
+									<span class="info-box-text">总有效投注（元）</span>
+									<span class="info-box-number">{{item.bet_all|tranNumber}}</span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="info-box" style="display: flex">
+								<div class="info-box-content" style="float: right;">
+									<span class="info-box-text">损益（元）</span>
+									<span class="info-box-number">{{item.profit_all|tranNumber}}</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div
+					style="background-color: #fff;border-radius: 10px;margin-top: 50px;padding-bottom: 50px;box-shadow: 1px 0px 26px #ccc">
+					<div class="list">
+						<img src="../../../assets/images/icon.png">
+						<span>{{tit}}站点综合数据统计</span>
+					</div>
+					<div style="margin-top:35px;">
+						<table class="table table-bordered" *ngFor="let item of sitelist">
+							<tr>
+								<th>站点名称</th>
+								<th>总会员（人）</th>
+								<th>活跃会员（人）</th>
+								<th>新注册会员（人）</th>
+								<th>首充会员（人）</th>
+								<th>总有效投注额（元）</th>
+								<th>总损益（元）</th>
+							</tr>
+							<tbody>
+								<tr>
+									<td rowspan="5">{{item.site_name}}</td>
+									<td>{{item.user_all}}</td>
+									<td>{{item.user_active}}</td>
+									<td>{{item.user_register}}</td>
+									<td>{{item.user_first_deposit}}</td>
+									<td>{{item.bet_all|tranNumber}}</td>
+									<td [ngClass]="item.profit_all<0?'red':'green'">{{item.profit_all|tranNumber}}</td>
+								</tr>
+								<tr style="background:#eee">
+									<td>彩票投注（元）</td>
+									<td>彩票损益（元） </td>
+									<td>电子游戏投注（元）</td>
+									<td>电子游戏损益（元）</td>
+									<td>棋牌游戏投注（元）</td>
+									<td>棋牌游戏损益（元）</td>
+								</tr>
+								<tr>
+									<td>{{item.bet_lottery|tranNumber}}</td>
+									<td [ngClass]="item.profit_lottery<0?'red':'green'">
+										{{item.profit_lottery|tranNumber}}
+									</td>
+									<td>{{item.bet_game|tranNumber}}</td>
+									<td [ngClass]="item.profit_game<0?'red':'green'">
+										{{item.profit_game|tranNumber}}
+									</td>
+									<td>{{item.bet_cards|tranNumber}}</td>
+									<td [ngClass]="item.profit_cards<0?'red':'green'">
+										{{item.profit_cards|tranNumber}}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- 中间统计图表 S  -->
+			<div class="right">
+				<h4>{{tit}}投注排行榜</h4>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>排名</th>
+							<th>站点名称</th>
+							<th>投注额</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let item of ranklist;let i=index">
+							<td>
+								<span *ngIf="i==0" class="reds">{{i+1}}</span>
+								<span *ngIf="i==1" class="greens">{{i+1}}</span>
+								<span *ngIf="i==2" class="blue">{{i+1}}</span>
+								<span *ngIf="i==3" class="yellow">{{i+1}}</span>
+								<span *ngIf="i==4||i==5||i==6||i==7||i==8||i==9" class="block">{{i+1}}</span>
+							</td>
+							<td>{{item.site_name}}</td>
+							<td>{{item.bet_all|tranNumber}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>
+<!-- 首页内容区 E -->

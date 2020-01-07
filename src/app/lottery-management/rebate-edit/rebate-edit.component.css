@@ -1,0 +1,153 @@
+/* Developer：July
+Date:
+Description：彩票返点设置-详情 */
+
+.content {
+	padding: 0 2%;
+}
+.odds_list table thead tr td {
+	border-bottom-width: 0;
+	background: rgba(246, 247, 249, 1);
+	line-height: 50px;
+	padding: 0;
+	font-weight: bold;
+	color: #333;
+}
+table tr td {
+	line-height: 40px;
+	padding: 0;
+}
+.content-header {
+	height: 50px;
+	padding: 13px 2%;
+	display: flex;
+	justify-content: space-between;
+	color: #666;
+}
+.content-header h1 {
+	border-left: 6px solid rgb(26, 188, 156);
+	padding-left: 6px;
+	line-height: 25px;
+}
+.content-header .breadcrumb {
+	position: initial;
+	line-height: 13px;
+}
+input {
+	border: 1px solid #ccc;
+	margin: 0;
+}
+.box-body {
+	padding: 2%;
+}
+.lottery_right .prompt {
+	font-size: 14px;
+	height: 34px;
+	line-height: 34px;
+	border: 1px solid rgba(171, 220, 255, 1);
+	background-color: rgba(240, 250, 255, 1);
+	border-radius: 4px;
+	color: #657180;
+	margin-bottom: 15px;
+	position: relative;
+	padding-left: 25px;
+}
+.lottery_right .prompt::before {
+	content: '';
+	position: absolute;
+	top: 8px;
+	left: 5px;
+	width: 15px;
+	height: 15px;
+	background: url(/assets/img/content-home/xinjin.png) no-repeat;
+	background-size: 100%;
+}
+.rig_titie,
+.setting-select {
+	font-weight: bold;
+	font-size: 16px;
+	background: rgba(246, 247, 249, 1);
+	height: 60px;
+	line-height: 60px;
+	border: 1px solid #ccc;
+	padding-left: 20px;
+	margin-bottom: 20px;
+}
+.rig_titie {
+	margin-bottom: 0;
+}
+.setting-select {
+	overflow: hidden;
+	clear: both;
+}
+.setting-site {
+	font-size: 16px;
+	height: 60px;
+	line-height: 60px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+.setting-site span {
+	padding: 7px 25px;
+	margin-left: 20px;
+	background: rgba(246, 247, 249, 1);
+	color: #666;
+}
+.setting-select {
+	margin-top: 15px;
+}
+.btns {
+	float: right;
+	overflow: hidden;
+	margin-top: 13px;
+}
+.cancelBtn {
+	float: right;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	margin-right: 60px;
+	border: 1px solid #c7c7c7;
+	border-radius: 3px;
+	background: white;
+	color: #adadad;
+}
+.keepBtn {
+	float: right;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	margin-right: 60px;
+	background: rgba(64, 142, 186, 1);
+	color: white;
+	border: none;
+	border-radius: 3px;
+}
+.keepBtn:hover {
+	background: rgba(64, 142, 186, .8);
+	color: white;
+}
+button {
+	margin-left: 10px;
+	width: 80px;
+	height: 30px;
+	line-height: 30px;
+	border: 0px;
+	color: white;
+	border-radius: 2px;
+	background: rgba(64, 142, 186, 1);
+	font-weight: lighter;
+}
+.odds_list {
+	overflow-y: scroll;
+	height: 544px;
+}
+.odds_list>table tr th,
+table tr td {
+	text-align: center;
+}
+input {
+	border: 1px solid #ccc;
+	height: 25px;
+	text-align: center;
+}

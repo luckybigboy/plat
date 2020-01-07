@@ -1,0 +1,44 @@
+<!-- Developer：July
+Date:
+Description：公共左侧导航 -->
+
+<aside class="main-sidebar">
+	<!-- sidebar: style can be found in sidebar.less -->
+	<section class="sidebar">
+		<!-- Sidebar user panel -->
+		<div class="user-panel"></div>
+		<!-- search form -->
+		<!-- /.search form -->
+		<!-- sidebar menu: : style can be found in sidebar.less -->
+		<ul class="sidebar-menu" data-widget="tree">
+			<li class="treeview" (click)='gohome()'>
+				<a routerLink="/home" [class.actives]='open'>
+					<i class="fa fa-dashboard"></i>
+					<span class="allname">首页</span>
+				</a>
+			</li>
+			<li class="treeview" *ngFor='let allItem of siderbarItem;let i=index' [class.noneitem]='!allItem.isActive'>
+				<a (click)='returni(i)'>
+					<i *ngIf="i==0" class="fa fa-user-plus"></i>
+					<i *ngIf="i==1" class="fa fa-database"></i>
+					<i *ngIf="i==2" class="fa fa-money"></i>
+					<i *ngIf="i==3" class="fa fa-bar-chart"></i>
+					<i *ngIf="i==4" class="fa fa-cloud-upload"></i>
+					<span class="allname">{{allItem.allName}}</span>
+					<span class="pull-right-container">
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+				<ul class="treeview-menu" [ngClass]="allItem.display?'show':''">
+					<li *ngFor='let inner of allItem.innerName;let j=index' [class.noneitem]='!inner.isActive'
+						(click)='geti(j)'>
+						<a [routerLink]="inner.router" [class.actives]='inner.router==this.url'>
+							<i class="fa fa-circle-o"></i>{{inner.name}}
+						</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<!-- /.sidebar -->
+</aside>

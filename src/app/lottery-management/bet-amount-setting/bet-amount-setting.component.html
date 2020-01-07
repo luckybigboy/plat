@@ -1,0 +1,87 @@
+<!-- Developer：July
+Date:
+Description：彩票投注额设置 -->
+
+<div class="content-wrapper" style="min-height:960px;background: rgba(246, 246, 249)">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h1>彩票投注额设置</h1>
+		<ol class="breadcrumb">
+			<li><i class="fa fa-yen"></i> 彩票管理</li>
+			<li class="active">彩票投注额设置</li>
+		</ol>
+	</section>
+	<!-- 中间合计 S  -->
+	<section class="content" style="margin-top: 10px;">
+		<div class="box" style="margin:0 auto;">
+			<div class="box-body">
+				<div class="comm-table-time">
+					<span>站点名称：</span><input type="text" [(ngModel)]="siteName" />
+				</div>
+				<div class="comm-table-time">
+					<span>状态：</span>
+					<select [(ngModel)]="systemLine">
+						<option value="0">开放</option>
+						<option value="1">关闭</option>
+						<option value="2">停止交易</option>
+						<option value="3">前后台关闭</option>
+					</select>
+				</div>
+				<div class="comm-table-searchBtn">
+					<button class="btn-primary" (click)="betlist(2)">搜索</button>
+				</div>
+				<table class="table table-bordered table-condensed table0101 table_racing">
+					<thead>
+						<tr>
+							<th *ngIf="perupdata">
+								<input type="checkbox" (click)="selall($event.target.checked,betList)"
+									[(checked)]="selallatate">全选
+							</th>
+							<th>站点名称</th>
+							<th>状态</th>
+							<th>本月有效投注总额</th>
+							<th>本月派彩总额</th>
+							<th>有效投注总额-派彩总额</th>
+							<th><span>操作</span><button (click)="editBatch()" *ngIf="perupdata" class="btn-primary"
+									[disabled]="batch.length==0" [class.daily]="batch.length==0">批量修改</button></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let item of betList;let i=index">
+							<td *ngIf="perupdata">
+								<input type="checkbox" [(checked)]="item.active"
+									(click)="singelsel($event.target.checked,i,betList)">
+							</td>
+							<td>{{item.site_name}}</td>
+							<td>
+								<button *ngIf="item.status==0" class="staus openBtn">开放</button>
+								<button *ngIf="item.status==1" class="staus endBtn">停止交易</button>
+								<button *ngIf="item.status==2" class="staus closeBefore">关闭前台</button>
+								<button *ngIf="item.status==3" class="staus closeAll">关闭前后台</button>
+							</td>
+							<td>{{item.bet_all| tranNumber}}</td>
+							<td>{{item.bonus_all| tranNumber}}</td>
+							<td [ngClass]="item.profit_all<0?'red':'green'">
+								{{item.profit_all | tranNumber}}</td>
+							<td>
+								<button class="btn-primary" [routerLink]="['/bet-edit']"
+									[queryParams]="{id:item.site_key,name:item.site_name,type:2}" *ngIf="perupdata">修改
+								</button>
+								<button class="btn-primary" [routerLink]="['/bet-edit']"
+									[queryParams]="{id:item.site_key,name:item.site_name,type:2}" *ngIf="perview">查看
+								</button>
+							</td>
+						</tr>
+						<tr *ngIf="staus" class="nolist">
+							<td colspan="6">暂无数据</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="overlay" *ngIf='loadingDivs'>
+					<i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+				</div>
+			</div>
+		</div>
+	</section>
+	<app-alert #child [stock]="stock"></app-alert>
+</div>

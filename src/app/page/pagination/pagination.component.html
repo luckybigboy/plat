@@ -1,0 +1,54 @@
+<!-- Developer：July
+Date:
+Description：公共分页 -->
+
+<div style="display:flex;justify-content: space-between;">
+	<div style="overflow: hidden;clear: both;margin-right: 20px">
+		<div class="dataTables_info" id="example1_info" role="status" aria-live="polite"
+			style="float: left;box-sizing: border-box;">
+			<div style="display: inline;">共
+				<span>{{pageParams.totalNum}}</span><span>条记录，每页{{size}}条，</span>
+				当前<i class="num">{{pageNo}}</i>/<span>{{pageParams.totalpage==''?0:pageParams.totalpage}}</span>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="dataTables_paginate paging_simple_numbers" id="example1_paginate" style="margin-top: -24px;">
+			<ul class="pagination">
+				<li class="paginate_button">
+					<button class="bothBtn btn-primary" aria-controls="example1" tabindex="0" [routerLink]="['./']"
+						(click)="firstPage()" [ngClass]="{'prohibit': point == true}" [queryParams]="{pageNo:pageNo}">首页
+					</button>
+				</li>
+				<li class="paginate_button previous disable" id="example_previous">
+					<button aria-controls="example1" class="previous pre_next_btn" data-dt-idx="1" tabindex="0"
+						[routerLink]="['./']" [ngClass]="{'prohibit': point == true}" (click)="prePage()"
+						[queryParams]="{pageNo:pageNo}" [disabled]='preconsole'>上一页
+					</button>
+				</li>
+				<li class="paginate_button" *ngFor="let item of showPage">
+					<button [ngClass]="{'btnactive':item.showPageSize==pageNo}" aria-controls="example1" tabindex="0"
+						[routerLink]="['./']" (click)="showPageTo(item.showPageSize)"
+						class="showpage" [queryParams]="{pageNo:pageNo}">{{item.showPageSize}}
+					</button>
+				</li>
+				<li class="paginate_button next" id="next">
+					<button aria-controls="example1" class="pre_next_btn" data-dt-idx="2" tabindex="0"
+						[routerLink]="['./']" (click)="nextPage()" [ngClass]="{'prohibit': point == true}"
+						[queryParams]="{pageNo:pageNo}" [disabled]='nextconsole'>下一页
+					</button>
+				</li>
+				<li class="paginate_button">
+					<button class="bothBtn" [ngClass]="{'prohibit': point == true}" (click)="lastPage()">尾页</button>
+				</li>
+				<li class="pageto">
+					跳至
+					<input #inputNum type="number" min="1" max={{pageParams.totalpage}} class="pageNum"
+						[routerLink]="['./']" [ngClass]="{'prohibit': point == true}" (keyup)="gotoPage($event)"
+						[queryParams]="{pageNo:pageNo}" [ngModel]="inputNum" (ngModelChange)="onInput($event)"
+						(input)="onLimit($event)">页
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

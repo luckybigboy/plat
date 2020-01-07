@@ -1,0 +1,119 @@
+/* Developer：July
+Date:
+Description：第三方游戏开关 */
+
+input {
+	border: 1px solid #ccc;
+}
+.box-body {
+	padding: 2%;
+}
+.overlay {
+	width: 50px;
+	height: 43px;
+	margin: 80px auto;
+}
+.overlay>i,
+.content-header {
+	color: #666 !important;
+}
+.comm-table-time {
+	float: left;
+	padding: 0px 25px 25px 0px;
+	font-size: 18px;
+	color: #666666;
+}
+.comm-table-time input {
+	width: 200px;
+	padding-left: 5px;
+	border-radius: 5px;
+	height: 35px;
+	border: 1px solid #c4c4c4;
+	font-size: 14px;
+}
+.box {
+	height: 84vh;
+	overflow-y: scroll;
+}
+.nolist {
+	height: 140px;
+	font-size: 20px;
+}
+.table-bordered>thead>tr>th {
+	border-bottom-width: 0px;
+}
+select {
+	width: 246px;
+	height: 35px;
+	background-color: transparent;
+	font-family: 'ArialMT', 'Arial';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 14px;
+	text-decoration: none;
+	color: #999999;
+}
+.comm-table-time input {
+	width: 200px;
+	padding-left: 5px;
+	border-radius: 5px;
+	height: 35px;
+	border: 1px solid #c4c4c4;
+	font-size: 14px;
+}
+.comm-table-searchBtn {
+	float: left;
+}
+.comm-table-searchBtn button {
+	width: 100px;
+	height: 35px;
+	border-radius: 8px;
+	border: 0px;
+	color: white;
+}
+.daily{
+	opacity: 0.8;
+	cursor: not-allowed;
+}
+table button {
+	width: 75px;
+	height: 33px;
+	border: none;
+	border-radius: 3px;
+	color: white;
+}
+table tr td,
+table tr th {
+	height: 50px;
+	vertical-align: middle;
+	color: #666666;
+	text-align: center;
+}
+table tr th span {
+	padding: 0px 16px;
+}
+.content-header {
+	height: 50px;
+	padding: 13px 2%;
+	display: flex;
+	justify-content: space-between;
+}
+.content-header .breadcrumb {
+	position: static;
+	padding: 0;
+	line-height: 24px;
+}
+.content-header h1 {
+	display: inline-block;
+	border-left: 6px solid rgb(26, 188, 156);
+	padding-left: 6px;
+	line-height: 24px;
+}
+.breadcrumb li,
+.content-header h1 {
+	display: inline-block;
+}
+.content {
+	margin: 0;
+	padding: 0 2%;
+}

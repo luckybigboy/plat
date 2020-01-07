@@ -1,0 +1,51 @@
+<!-- Developer：July
+Date:
+Description：登录 -->
+
+<div class="wrapper" style="min-height:1000vh;">
+	<div class="login-box">
+		<div class="login-logo">
+			<p>平台后台</p>
+		</div>
+		<div class="login-box-body">
+			<p class="login-box-msg">登录</p>
+			<form  method="post">
+				<div class="form-group has-feedback">
+					<input type="email" class="form-control" placeholder="请输入用户名" id="inpUser" name="username"
+						[(ngModel)]="username">
+					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+					<span style="color:red" *ngIf="varUser">{{varUsername}}</span>
+				</div>
+				<div class="form-group has-feedback">
+					<input type="password" class="form-control" placeholder="请输入密码" name="psd" id="passwordUser"
+						[(ngModel)]="password">
+					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+					<span style="color:red" *ngIf="varpassword">{{varUserpassword}}</span>
+					<span style="color:red" *ngIf="sete">{{reage}}</span>
+				</div>
+				<div class="row">
+					<div>
+						<div class="form-group has-feedback loginstyle" *ngIf='!login_btn'>
+							<button type="submit" class="btn btn-primary btn-block btn-flat clear"
+								(click)="loginbtn()">登录
+							</button>
+						</div>
+						<div *ngIf="login_btn" style="position:relative">
+							<div class="overlay" *ngIf='login_btn'>
+								<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+							</div>
+							<button type="submit" class="btn btn-primary btn-block btn-flat" [disabled]='dislogin'
+								[class.login_no]="login_btn">
+								登录中...
+							</button>			
+						</div>
+					</div>
+				</div>
+				<p *ngIf="mesg" style="color:red;text-align:center">{{loginmsg}}</p>
+			</form>
+		</div>
+	</div>
+	<div class="modal fade bd-example-modal-sm" id="exportOut" role="dialog" data-backdrop="false" aria-hidden="true">
+		{{stock}}
+	</div>
+</div>
