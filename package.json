@@ -43,7 +43,7 @@
         "queueing-subject": "0.3.0",
         "rxjs": "6.0.0",
         "rxjs-compat": "6.3.3",
-        "socket.io": "2.1.1",
+        "socket.io": "2.4.0",
         "socket.io-client": "2.1.1",
         "swiper": "4.4.1",
         "ts-md5": "1.2.4",
