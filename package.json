@@ -45,7 +45,7 @@
         "rxjs-compat": "6.3.3",
         "socket.io": "2.1.1",
         "socket.io-client": "2.1.1",
-        "swiper": "4.4.1",
+        "swiper": "6.5.1",
         "ts-md5": "1.2.4",
         "ws": "6.1.0",
         "zone.js": "0.8.26"
