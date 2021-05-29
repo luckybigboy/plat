@@ -47,7 +47,7 @@
         "socket.io-client": "2.1.1",
         "swiper": "4.4.1",
         "ts-md5": "1.2.4",
-        "ws": "6.1.0",
+        "ws": "7.4.6",
         "zone.js": "0.8.26"
     },
     "devDependencies": {
